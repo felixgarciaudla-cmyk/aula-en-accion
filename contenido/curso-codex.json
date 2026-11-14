@@ -1,0 +1,15 @@
+{
+  "slug": "curso-codex-2026",
+  "titulo": "Codex 2026",
+  "autor": "Ing. Félix A. García M.",
+  "institucion": "Escuela Superior Politécnica de Chimborazo",
+  "siglas": "ESPOCH",
+  "descripcion": "De tu primer proyecto con IA a un flujo de trabajo que puedes comprobar, repetir y automatizar.",
+  "color": "#b91e22",
+  "zonaHoraria": "America/Guayaquil",
+  "etiquetaHora": "Hora de Ecuador",
+  "logotipo": "recursos/curso-codex/espoch-horizontal.png",
+  "escudoQR": "recursos/curso-codex/escudo-qr.png",
+  "musica": "recursos/curso-codex/ambiente.mp3",
+  "franja": "recursos/curso-codex/franja-espoch.png"
+}

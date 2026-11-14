@@ -1,0 +1,75 @@
+{
+  "slug": "taller-de-proyectos",
+  "titulo": "Taller de proyectos",
+  "autor": "Nombre del docente",
+  "institucion": "Nombre de la institución",
+  "siglas": "Institución",
+  "descripcion": "Organiza un proyecto en torno a un entregable y comprueba el resultado con una prueba reproducible.",
+  "color": "#b91e22",
+  "zonaHoraria": "America/Guayaquil",
+  "etiquetaHora": "Hora de Ecuador",
+  "logotipo": "",
+  "escudoQR": "",
+  "musica": "",
+  "franja": "",
+  "resultados": [
+    {
+      "titulo": "Definir un entregable",
+      "descripcion": "Describe quién usará el resultado, qué debe poder hacer y cómo confirmarás que funciona."
+    },
+    {
+      "titulo": "Documentar una prueba",
+      "descripcion": "Conserva la entrada, los pasos y el resultado observado para que otra persona pueda repetirla."
+    }
+  ],
+  "modulos": [
+    {
+      "id": 1,
+      "titulo": "Del objetivo al entregable",
+      "explicacion": "Empieza por una necesidad concreta. Define un entregable que puedas revisar y escribe un criterio de aceptación verificable antes de construirlo.",
+      "subtemas": ["Identificar a la persona que usará el resultado", "Definir el entregable", "Escribir un criterio de aceptación"],
+      "practica": {
+        "titulo": "Redactar un criterio de aceptación",
+        "consigna": "Elige un entregable de tu equipo y escribe cómo verificarás que está listo.",
+        "pregunta": "¿Qué criterio permite comprobar una lista de inventario?",
+        "opciones": [
+          "La lista tiene un diseño atractivo.",
+          "Cada registro coincide con un artículo y una cantidad verificados.",
+          "El archivo usa el nombre acordado."
+        ],
+        "correcta": 2,
+        "retroalimentacion": "Contrastar cada registro con el artículo físico comprueba que nombres y cantidades son fiables."
+      }
+    },
+    {
+      "id": 2,
+      "titulo": "Prueba y evidencia",
+      "explicacion": "Usa la pizarra para relacionar entradas, acciones y resultados. Registra la evidencia suficiente para repetir la prueba.",
+      "subtemas": ["Preparar datos de prueba", "Comparar el resultado con el criterio"],
+      "practica": {
+        "titulo": "Preparar una prueba repetible",
+        "consigna": "Describe una prueba breve que pueda comprobar otra persona.",
+        "pregunta": "¿Qué debe quedar registrado para repetir la prueba?",
+        "opciones": [
+          "Los datos de entrada, los pasos y el resultado esperado.",
+          "El nombre de la persona que presentó el trabajo.",
+          "Una captura de la portada del proyecto."
+        ],
+        "correcta": 1,
+        "retroalimentacion": "Con la entrada, los pasos y el resultado esperado, otra persona puede repetir la revisión."
+      }
+    }
+  ],
+  "proyectos": [
+    {
+      "modulo": 2,
+      "titulo": "Un entregable verificable",
+      "descripcion": "Crea un inventario de ejemplo y documenta cómo comprobar una fila.",
+      "pasos": ["Escribe el criterio de aceptación.", "Ejecuta una prueba.", "Anota el resultado y el ajuste que harías."],
+      "entregable": "Inventario de ejemplo con una prueba documentada y reproducible."
+    }
+  ],
+  "recursos": [
+    {"titulo": "Buenas prácticas de OpenAI", "url": "https://learn.chatgpt.com/docs/learn/best-practices"}
+  ]
+}

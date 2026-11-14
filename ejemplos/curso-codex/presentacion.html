@@ -1,0 +1,1514 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Codex 2026 — Presentación interactiva</title>
+<meta name="description" content="Presentación interactiva de Codex 2026 con 17 módulos, 10 proyectos y pizarra integrada.">
+<style>{{ESTILOS}}</style>
+<script id="course-settings" type="application/json">{{AJUSTES}}</script>
+</head>
+<body>
+<div class="shell">
+<header class="course-header">
+  <a class="brand" href="#portada">Codex 2026</a>
+  <div class="header-actions">
+    <a class="control header-icon" href="#temario" data-nav-icon="course" aria-label="Temario del curso">
+      <span class="nav-icon" aria-hidden="true"></span>
+    </a>
+    <button class="control header-icon" id="open-index" type="button" aria-label="Mapa del curso" title="Mapa del curso" aria-haspopup="dialog" aria-controls="slide-index">
+      <span class="map-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <button class="control header-icon" id="download-deck" type="button" aria-label="Descargar PDF con el avance de la sesión">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M7 3h8l4 4v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
+        <path d="M15 3v4h4m-7 3v7m-3-3 3 3 3-3"/>
+      </svg>
+    </button>
+    <span id="pdf-export-status" class="sr" role="status"></span>
+        <button class="control header-icon" id="fullscreen" type="button" aria-keyshortcuts="F" aria-pressed="false" aria-label="Exponer (F)">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path data-exposure-icon="enter" d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/>
+        <path data-exposure-icon="exit" d="M4 9h5V4m6 0v5h5M4 15h5v5m6 0v-5h5"/>
+      </svg>
+    </button>
+<div class="presentation-tools" data-tool="off">
+      <button class="control header-icon" id="presentation-tools-toggle" type="button" data-tool="off"
+        aria-label="Herramientas del puntero (P) · Inactivo" aria-keyshortcuts="P" aria-expanded="false" aria-controls="presentation-tools-menu">
+        <svg class="presentation-tool-symbol" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M4 9h16a1 1 0 0 1 1 1v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8a1 1 0 0 1 1-1Zm4 0V6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3M3 13h18m-12 0v2m6-2v2"/>
+        </svg>
+        <span class="presentation-tool-chevron" aria-hidden="true"></span>
+      </button>
+      <div id="presentation-tools-menu" role="group" aria-label="Herramientas del puntero" hidden>
+        <p class="presentation-tools-heading">Herramientas <kbd>P</kbd></p>
+        <div class="presentation-tool-grid">
+          <button type="button" data-presentation-tool="pointer" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5" fill="currentColor" stroke="none"/></svg>
+            <span>Puntero fino</span>
+          </button>
+          <button type="button" data-presentation-tool="pen" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20l4.5-1 10-10a1.6 1.6 0 0 0 0-2.3l-1.2-1.2a1.6 1.6 0 0 0-2.3 0l-10 10L4 20Zm9-12 3 3"/></svg>
+            <span>Lápiz</span>
+          </button>
+          <button type="button" data-presentation-tool="highlighter" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 15l9-9a1.4 1.4 0 0 1 2 0l1 1a1.4 1.4 0 0 1 0 2l-9 9H8v-3Zm5-5 3 3M8 16l-3 3h3l2-2m-6 4h16"/></svg>
+            <span>Resaltador</span>
+          </button>
+          <button type="button" data-presentation-tool="off" aria-pressed="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="7"/><path d="m7 17 10-10"/></svg>
+            <span>Desactivar</span>
+          </button>
+        </div>
+        <div class="presentation-palette" role="group" aria-labelledby="presentation-color-label">
+          <p id="presentation-color-label">Color <span id="presentation-color-name">Desactivado</span></p>
+          <div class="presentation-swatches">
+            <button type="button" data-presentation-color="pink" style="--ink-choice:#ff396f" aria-label="Rosa neón" title="Rosa neón" aria-pressed="false" disabled></button>
+            <button type="button" data-presentation-color="cyan" style="--ink-choice:#37dcff" aria-label="Cian neón" title="Cian neón" aria-pressed="false" disabled></button>
+            <button type="button" data-presentation-color="green" style="--ink-choice:#a7ff43" aria-label="Verde lima" title="Verde lima" aria-pressed="false" disabled></button>
+            <button type="button" data-presentation-color="purple" style="--ink-choice:#d887ff" aria-label="Violeta neón" title="Violeta neón" aria-pressed="false" disabled></button>
+            <button type="button" data-presentation-color="yellow" style="--ink-choice:#faff3f" aria-label="Amarillo neón" title="Amarillo neón" aria-pressed="false" disabled></button>
+            <button type="button" data-presentation-color="orange" style="--ink-choice:#ff983b" aria-label="Naranja neón" title="Naranja neón" aria-pressed="false" disabled></button>
+          </div>
+        </div>
+        <button id="clear-presentation-ink" type="button" aria-label="Borrar trazos de esta diapositiva" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.6 13.9 13 5.5a2 2 0 0 1 2.8 0l4.4 4.4a2 2 0 0 1 0 2.8l-6.4 6.4H9.7l-5.1-5.2Zm4.2-4.2 8.7 8.7M13.8 19.1H22"/></svg>
+          <span>Borrar trazos</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="control" id="course-clock" type="button" aria-pressed="false" title="Pulsa para cambiar entre 12 y 24 horas">
+    <span class="clock-label">Hora de Ecuador</span>
+    <time id="course-time">--:--:--</time>
+    <span class="sr">Formato de 12 horas</span>
+  </button>
+  <img class="institution-logo" src="{{ARCHIVO:recursos/curso-codex/espoch-horizontal.png}}" alt="ESPOCH">
+</header>
+<main id="deck" aria-label="Presentación del curso"><div id="slide-stage">
+<section class="slide hero" aria-labelledby="portada" data-kind="Inicio" style="--tone:var(--accent)">
+
+<div class="hero-content">
+  <div class="cover-institution"><img class="cover-mark" src="{{ARCHIVO:recursos/curso-codex/espoch-escudo.png}}" alt=""><p class="kicker">Escuela Superior Politécnica de Chimborazo</p></div>
+  <h1 id="portada">Codex <span>2026</span></h1>
+  <p class="lead">De tu primer proyecto con IA a un flujo de trabajo que puedes comprobar, repetir y automatizar.</p>
+  <figure class="teacher-profile" aria-labelledby="teacher-name">
+    <img src="{{ARCHIVO:recursos/curso-codex/docente.jpg}}" width="1280" height="1280" alt="Retrato del docente junto a la bandera de la ESPOCH">
+    <figcaption>
+      <p class="teacher" id="teacher-name"><strong>Ing. Félix A. García M.</strong></p>
+      <p class="teacher-role">Docente Investigador</p>
+      <p class="teacher-affiliation">Facultad de Mecánica</p>
+    </figcaption>
+  </figure>
+  <div class="facts"><span><strong>17</strong> módulos</span><span><strong>10</strong> proyectos</span></div>
+  <div class="attendance-actions"><a class="control primary start" href="#resultados">Empezar el curso →</a>
+    <button type="button" class="control cover-icon" id="open-attendance" aria-haspopup="dialog" aria-controls="attendance-dialog" aria-label="Asistencia" title="Asistencia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3"/><path d="M3.5 19v-2a4 4 0 0 1 4-4h3a4 4 0 0 1 3.6 2.3M15.5 18.5l2.1 2.1 4.2-4.2"/></svg></button>
+    <button type="button" class="control cover-icon" id="open-report" data-teacher-tool="reporte" aria-label="Reporte" title="Reporte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"/></svg></button>
+    <button type="button" class="control cover-icon" id="open-reset" data-teacher-tool="reiniciar" aria-label="Reiniciar jornada" title="Reiniciar jornada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 1 3 6.7M3 4v8h8"/></svg></button>
+    <button class="control cover-icon" id="ambient-toggle" type="button" aria-label="Reproducir música de ambiente" aria-pressed="false" title="Reproducir música de ambiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path data-music-icon="playing" d="M9 18V5l11-2v13M9 9l11-2m-11 11a3 2 0 1 1-6 0 3 2 0 0 1 6 0Zm11-2a3 2 0 1 1-6 0 3 2 0 0 1 6 0Z"/><path data-music-icon="paused" d="M9 6v12m6-12v12"/></svg></button>
+  </div>
+  <p class="cover-action-status" id="cover-action-status" role="status" hidden></p>
+  <button type="button" class="control teacher-link-button" id="link-teacher-tools" data-open-link-dialog aria-haspopup="dialog" aria-controls="presentation-link-dialog" hidden>Vincular presentación</button>
+  <audio id="ambient-audio" preload="none" src="{{ARCHIVO:recursos/curso-codex/ambiente.mp3}}"></audio> 
+</div>
+<section id="course-route" class="workspace course-route" aria-label="Temario del curso" aria-roledescription="carrusel">
+  <div class="window-bar">
+    <div class="course-route-pager" role="group" aria-label="Grupos del temario">
+      <button type="button" class="course-route-dot" aria-controls="course-route-frame-1" aria-current="true" aria-label="Fundamentos · Módulos 00 a 05" title="Fundamentos · Módulos 00 a 05"></button>
+      <button type="button" class="course-route-dot" aria-controls="course-route-frame-2" aria-current="false" aria-label="Fundamentos · Módulos 06 a 07" title="Fundamentos · Módulos 06 a 07"></button>
+      <button type="button" class="course-route-dot" aria-controls="course-route-frame-3" aria-current="false" aria-label="Herramientas y creación · Módulos 08 a 12" title="Herramientas y creación · Módulos 08 a 12"></button>
+      <button type="button" class="course-route-dot" aria-controls="course-route-frame-4" aria-current="false" aria-label="Coordinación y automatización · Módulos 13 a 16" title="Coordinación y automatización · Módulos 13 a 16"></button>
+      <button type="button" class="course-route-toggle" data-paused="false" aria-label="Pausar recorrido automático" title="Pausar recorrido automático"></button>
+    </div>
+    <a class="course-route-overview" href="#temario" title="Abrir el temario completo">Temario del curso</a>
+  </div>
+  <div class="course-route-frames">
+    <div id="course-route-frame-1" class="course-route-frame" role="group" aria-label="Fundamentos · Módulos 00 a 05" aria-hidden="false" style="--tone:var(--accent)">
+      <figure class="photo hero-photo">
+        <img src="{{ARCHIVO:recursos/curso-codex/taller-creativo.webp}}" alt="Estudiante trabajando con prototipos, planos y un monitor en un taller creativo" decoding="async" width="1080" height="720">
+        <figcaption class="course-route-phase">Fundamentos</figcaption>
+      </figure>
+      <div class="flow">
+        <a href="#temas-2" title="Mapa del curso y proyectos" class="route">
+          <i>00</i>
+          <span class="topic-label">Bienvenida</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="completion-check module-complete" data-subtopics-complete="2" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-3" title="ChatGPT, Work y Codex" class="route">
+          <i>01</i>
+          <span class="topic-label">El ecosistema OpenAI</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="completion-check module-complete" data-subtopics-complete="3" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-4" title="Mac, Windows y primer espacio" class="route">
+          <i>02</i>
+          <span class="topic-label">Instalación</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="4" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="4" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-5" title="Dictado, voz y controles" class="route">
+          <i>03</i>
+          <span class="topic-label">La interfaz y voz</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="5" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="5" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-6" title="Crear, revisar y publicar" class="route">
+          <i>04</i>
+          <span class="topic-label">Proyecto 1 · Tu primera landing</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="6" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="6" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-7" title="Ventana de contexto y elección de modelo" class="route">
+          <i>05</i>
+          <span class="topic-label">Tokens, modelos y contexto</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="7" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="7" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div id="course-route-frame-2" class="course-route-frame" role="group" aria-label="Fundamentos · Módulos 06 a 07" aria-hidden="true" style="--tone:var(--accent)" inert="">
+      <figure class="photo hero-photo">
+        <img src="{{ARCHIVO:recursos/curso-codex/control-codigo.webp}}" alt="Persona revisando cambios de código con una lista de verificación junto al monitor" decoding="async" width="1080" height="720">
+        <figcaption class="course-route-phase">Fundamentos</figcaption>
+      </figure>
+      <div class="flow">
+        <a href="#temas-8" title="Permisos, Plan Mode y revisión" class="route">
+          <i>06</i>
+          <span class="topic-label">Control</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="8" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="8" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-9" title="AGENTS.md, archivos y continuidad" class="route">
+          <i>07</i>
+          <span class="topic-label">Estructura de los proyectos</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="9" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="9" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div id="course-route-frame-3" class="course-route-frame" role="group" aria-label="Herramientas y creación · Módulos 08 a 12" aria-hidden="true" style="--tone:var(--accent-2)" inert="">
+      <figure class="photo hero-photo">
+        <img src="{{ARCHIVO:recursos/curso-codex/conectores.webp}}" alt="Monitor panorámico con un flujo de trabajo y un concentrador de red en el escritorio" decoding="async" width="1080" height="720">
+        <figcaption class="course-route-phase">Herramientas y creación</figcaption>
+      </figure>
+      <div class="flow">
+        <a href="#temas-10" title="Conectar herramientas y fuentes" class="route">
+          <i>08</i>
+          <span class="topic-label">MCP y conectores</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="10" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="10" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-11" title="Referencias, clips y montaje" class="route">
+          <i>09</i>
+          <span class="topic-label">Proyecto 3 · Un corto de animación 3D</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="11" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="11" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-12" title="Investigar y trabajar entre dispositivos" class="route">
+          <i>10</i>
+          <span class="topic-label">Browser, Computer y Phone Use</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="12" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="12" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-13" title="Crear y probar procesos reutilizables" class="route">
+          <i>11</i>
+          <span class="topic-label">Skills</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="13" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="13" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-14" title="Pieza imprimible y maqueta editable" class="route">
+          <i>12</i>
+          <span class="topic-label">Computer Use en el mundo real</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="14" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="14" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div id="course-route-frame-4" class="course-route-frame" role="group" aria-label="Coordinación y automatización · Módulos 13 a 16" aria-hidden="true" style="--tone:var(--amber)" inert="">
+      <figure class="photo hero-photo">
+        <img src="{{ARCHIVO:recursos/curso-codex/coordinacion.webp}}" alt="Estación de trabajo que reúne video, texto y mensajería en una misma pantalla" decoding="async" width="1080" height="720">
+        <figcaption class="course-route-phase">Coordinación y automatización</figcaption>
+      </figure>
+      <div class="flow">
+        <a href="#temas-15" title="Repartir tareas y reunir entregables" class="route">
+          <i>13</i>
+          <span class="topic-label">Subagentes y orquestación</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="15" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="15" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-16" title="Horarios, disparadores y asistentes" class="route">
+          <i>14</i>
+          <span class="topic-label">Automatización 24/7 local y en la nube</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="16" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="16" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-17" title="Obsidian, fuentes y transferencia" class="route">
+          <i>15</i>
+          <span class="topic-label">Proyecto 10 · Tu segundo cerebro y handoff</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="done" data-done="17" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span>
+              <span class="completion-check module-complete" data-subtopics-complete="17" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+        <a href="#temas-18" title="Demostrar y continuar el proyecto" class="route">
+          <i>16</i>
+          <span class="topic-label">Próximos pasos</span>
+          <span class="course-route-meta">
+            <span class="module-marks">
+              <span class="completion-check module-complete" data-subtopics-complete="18" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span>
+            </span>
+            <b aria-hidden="true">→</b>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+<section class="slide outcomes" aria-labelledby="resultados" data-kind="Resultados" hidden>
+<p class="kicker">Resultados de aprendizaje</p>
+<h2 id="resultados">Para el final de este curso, vas a poder</h2>
+<div class="outcome-grid"><article><h3>Instalar y configurar Codex</h3><p>Elegir el entorno adecuado, abrir un proyecto en Mac o Windows y trabajar con dictado o voz.</p></article><article><h3>Publicar una página web</h3><p>Pasar de la idea a una landing con enlace propio y comprobarla en el navegador y el celular.</p></article><article><h3>Dirigir el trabajo del agente</h3><p>Ajustar modelos, contexto y permisos. Planificar cambios y verificar lo que se entregó.</p></article><article><h3>Conectar herramientas y fuentes</h3><p>Usar MCP, el navegador y aplicaciones del computador para investigar con evidencia y construir entregables.</p></article><article><h3>Reutilizar y automatizar procesos</h3><p>Convertir un flujo en una skill, coordinar subagentes y programar tareas locales o en la nube.</p></article><article><h3>Construir y transferir un proyecto</h3><p>Entregar algo que funcione, organizar sus fuentes en Obsidian y dejar instrucciones para continuarlo.</p></article></div>
+<div class="slide-actions"><a class="control primary top-link" href="#temario">Ver los 17 módulos →</a></div>
+</section>
+<section class="slide module-hub" aria-labelledby="temario" data-kind="Temario" style="--tone:var(--accent)" hidden>
+
+<div class="hub-header">
+  <div><p class="kicker">Codex 2026</p><h2 id="temario">Temario del curso</h2>
+  <p class="lead">Selecciona un módulo para recorrer el curso.</p></div>
+  <div><p class="course-status" id="course-status" aria-live="polite">0 de 14 comprobaciones resueltas en esta sesión</p>
+  <a class="control" href="#proyecto-1">Ver los proyectos →</a></div>
+</div>
+<div class="phase-grid"><article class="phase-card" style="--tone:var(--accent)"><figure class="photo "><img src="{{ARCHIVO:recursos/curso-codex/laboratorio.webp}}" alt="Estudiante programando en un laboratorio con luz natural" decoding="async" width="1080" height="720"></figure><h3>Fundamentos</h3><a href="#temas-2" title="Mapa del curso y proyectos"><span class="topic-number">00</span><span class="topic-label">Bienvenida </span><span class="module-marks"><span class="completion-check module-complete" data-subtopics-complete="2" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-3" title="ChatGPT, Work y Codex"><span class="topic-number">01</span><span class="topic-label">El ecosistema OpenAI </span><span class="module-marks"><span class="completion-check module-complete" data-subtopics-complete="3" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-4" title="Mac, Windows y primer espacio"><span class="topic-number">02</span><span class="topic-label">Instalación </span><span class="module-marks"><span class="done" data-done="4" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="4" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-5" title="Dictado, voz y controles"><span class="topic-number">03</span><span class="topic-label">La interfaz y voz </span><span class="module-marks"><span class="done" data-done="5" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="5" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-6" title="Crear, revisar y publicar"><span class="topic-number">04</span><span class="topic-label">Proyecto 1 · Tu primera landing </span><span class="module-marks"><span class="done" data-done="6" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="6" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-7" title="Ventana de contexto y elección de modelo"><span class="topic-number">05</span><span class="topic-label">Tokens, modelos y contexto </span><span class="module-marks"><span class="done" data-done="7" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="7" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-8" title="Permisos, Plan Mode y revisión"><span class="topic-number">06</span><span class="topic-label">Control </span><span class="module-marks"><span class="done" data-done="8" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="8" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-9" title="AGENTS.md, archivos y continuidad"><span class="topic-number">07</span><span class="topic-label">Estructura de los proyectos </span><span class="module-marks"><span class="done" data-done="9" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="9" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a></article><article class="phase-card" style="--tone:var(--accent-2)"><figure class="photo "><img src="{{ARCHIVO:recursos/curso-codex/impresion-3d.webp}}" alt="Impresora 3D con una maqueta arquitectónica junto a su modelo digital en un portátil" decoding="async" width="1080" height="720"></figure><h3>Herramientas y creación</h3><a href="#temas-10" title="Conectar herramientas y fuentes"><span class="topic-number">08</span><span class="topic-label">MCP y conectores </span><span class="module-marks"><span class="done" data-done="10" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="10" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-11" title="Referencias, clips y montaje"><span class="topic-number">09</span><span class="topic-label">Proyecto 3 · Un corto de animación 3D </span><span class="module-marks"><span class="done" data-done="11" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="11" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-12" title="Investigar y trabajar entre dispositivos"><span class="topic-number">10</span><span class="topic-label">Browser, Computer y Phone Use </span><span class="module-marks"><span class="done" data-done="12" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="12" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-13" title="Crear y probar procesos reutilizables"><span class="topic-number">11</span><span class="topic-label">Skills </span><span class="module-marks"><span class="done" data-done="13" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="13" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-14" title="Pieza imprimible y maqueta editable"><span class="topic-number">12</span><span class="topic-label">Computer Use en el mundo real </span><span class="module-marks"><span class="done" data-done="14" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="14" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a></article><article class="phase-card" style="--tone:var(--amber)"><figure class="photo "><img src="{{ARCHIVO:recursos/curso-codex/automatizacion.webp}}" alt="Estación con un calendario de tareas, equipos de red y un gabinete de servidores" decoding="async" width="1080" height="720"></figure><h3>Coordinación y automatización</h3><a href="#temas-15" title="Repartir tareas y reunir entregables"><span class="topic-number">13</span><span class="topic-label">Subagentes y orquestación </span><span class="module-marks"><span class="done" data-done="15" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="15" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-16" title="Horarios, disparadores y asistentes"><span class="topic-number">14</span><span class="topic-label">Automatización 24/7 local y en la nube </span><span class="module-marks"><span class="done" data-done="16" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="16" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-17" title="Obsidian, fuentes y transferencia"><span class="topic-number">15</span><span class="topic-label">Proyecto 10 · Tu segundo cerebro y handoff </span><span class="module-marks"><span class="done" data-done="17" hidden="" role="img" aria-label="Práctica resuelta" title="Práctica resuelta">✓</span><span class="completion-check module-complete" data-subtopics-complete="17" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a><a href="#temas-18" title="Demostrar y continuar el proyecto"><span class="topic-number">16</span><span class="topic-label">Próximos pasos </span><span class="module-marks"><span class="completion-check module-complete" data-subtopics-complete="18" role="img" aria-label="Subtemas completados" title="Subtemas completados" hidden=""></span></span></a></article></div>
+<div class="slide-actions"><a class="control" href="#temas-2">Ir a la bienvenida →</a></div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-2" data-kind="Detalle" data-theme="2" style="--tone:var(--accent)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-2" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-2" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a></nav>
+<p class="kicker">Módulo 0 · Temario</p>
+<h2 id="temas-2">Bienvenida</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/taller-creativo.webp}}" alt="Estudiante trabajando con prototipos, planos y un monitor en un taller creativo" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-2-1">Mapa del curso y formas de seguirlo</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-2-1" type="checkbox" aria-labelledby="titulo-subtema-2-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-2-2">Tipos de proyectos que puedes construir con Codex</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-2-2" type="checkbox" aria-labelledby="titulo-subtema-2-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-2" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-2" data-kind="Capítulo" data-theme="2" style="--tone:var(--accent)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-2" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-2" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a></nav>
+  <p class="kicker">Módulo 00</p>
+  <h2 id="capitulo-2">Bienvenida</h2>
+  <p class="lead explanation-summary">El curso avanza desde la primera página web hasta la automatización y una base de conocimiento. En cada etapa dirigirás a Codex, revisarás los archivos y los resultados, y documentarás el proceso para continuarlo o reutilizarlo.</p>
+  
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-2" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Temario</a></nav></div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide module-outline" aria-labelledby="temas-3" data-kind="Detalle" data-theme="3" style="--tone:var(--accent)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-3" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-3" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a></nav>
+<p class="kicker">Módulo 1 · Temario</p>
+<h2 id="temas-3">El ecosistema OpenAI</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/diagnostico.webp}}" alt="Automóvil con el capó abierto junto a un portátil de diagnóstico en un taller" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-3-1">Qué es OpenAI y las 3 herramientas: ChatGPT, Work y Codex (y cuándo usar cada uno)</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-3-1" type="checkbox" aria-labelledby="titulo-subtema-3-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-3-2">El auto y el motor: herramienta vs modelo</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-3-2" type="checkbox" aria-labelledby="titulo-subtema-3-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-3-3">Los planes: Free, Go, Plus y Pro</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-3-3" type="checkbox" aria-labelledby="titulo-subtema-3-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-3" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-3" data-kind="Capítulo" data-theme="3" style="--tone:var(--accent)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-3" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-3" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a></nav>
+  <p class="kicker">Módulo 01</p>
+  <h2 id="capitulo-3">El ecosistema OpenAI</h2>
+  <p class="lead explanation-summary">ChatGPT sirve para conversar y explorar ideas, Work para tareas con archivos y herramientas, y Codex para trabajar en proyectos. La herramienta es el entorno de trabajo y el modelo interpreta las instrucciones. Elige el plan y el entorno según el entregable y las funciones que necesitas.</p>
+  
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-3" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Temario</a></nav></div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide module-outline" aria-labelledby="temas-4" data-kind="Detalle" data-theme="4" style="--tone:var(--accent)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-4" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-4" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-4" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 2 · Temario</p>
+<h2 id="temas-4">Instalación</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/terminal.webp}}" alt="Portátil con una ventana de terminal abierta en un escritorio" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-4-1">Terminal vs app vs IDE: dónde vamos a trabajar</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-4-1" type="checkbox" aria-labelledby="titulo-subtema-4-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-4-2">Instalación en Mac y Windows + login</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-4-2" type="checkbox" aria-labelledby="titulo-subtema-4-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-4-3">Crear una carpeta o abrir un proyecto existente</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-4-3" type="checkbox" aria-labelledby="titulo-subtema-4-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-4" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-4" data-kind="Capítulo" data-theme="4" style="--tone:var(--accent)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-4" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-4" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-4" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 02</p>
+  <h2 id="capitulo-4">Instalación</h2>
+  <p class="lead explanation-summary">Puedes trabajar con Codex desde la terminal, la aplicación de escritorio o el editor. Instala la aplicación en Mac o Windows, inicia sesión y abre una carpeta de práctica o un proyecto existente. Pide un inventario antes de modificar archivos.</p>
+  
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-4" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-4" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav></div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-4" data-kind="Práctica" style="--tone:var(--accent)" data-theme="4" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-4" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-4" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-4" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 02 · Práctica</p>
+  <h2 id="practica-4">Instalación y primer encargo</h2>
+  <p class="activity">En una carpeta de práctica con tres archivos, genera un inventario. Revisa manualmente dos nombres y sus funciones.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-4" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-4" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="4" data-answer="2" data-feedback="El inventario se verifica al cotejar los nombres y las funciones con los archivos revisados en la carpeta.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Qué resultado confirma que el inventario de la carpeta es fiable?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-4" value="0"><span>El inventario abre y muestra tres filas con encabezados.</span></label><label><input type="radio" name="pregunta-4" value="1"><span>El explorador muestra los tres archivos de la carpeta.</span></label><label><input type="radio" name="pregunta-4" value="2"><span>Los nombres y las funciones coinciden con los archivos revisados.</span></label><label><input type="radio" name="pregunta-4" value="3"><span>Las funciones se deducen a partir de las extensiones.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="4" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="4" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-5" data-kind="Detalle" data-theme="5" style="--tone:var(--accent)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-5" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-5" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-5" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 3 · Temario</p>
+<h2 id="temas-5">La interfaz y voz</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/dictado.webp}}" alt="Micrófono y auriculares junto a un monitor con la forma de onda de una grabación" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-5-1">Recorrido total: sesiones, proyectos, tareas, archivos (tu espacio de trabajo)</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-5-1" type="checkbox" aria-labelledby="titulo-subtema-5-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-5-2">Voz en tiempo real vs dictado: pensar y trabajar conversando</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-5-2" type="checkbox" aria-labelledby="titulo-subtema-5-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-5-3">Modelos, esfuerzo y permisos: los controles principales</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-5-3" type="checkbox" aria-labelledby="titulo-subtema-5-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-5-4">Ajustes, uso y cómo retomar otra tarea</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-5-4" type="checkbox" aria-labelledby="titulo-subtema-5-4"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-5" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-5" data-kind="Capítulo" data-theme="5" style="--tone:var(--accent)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-5" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-5" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-5" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 03</p>
+  <h2 id="capitulo-5">La interfaz y voz</h2>
+  <p class="lead explanation-summary">Usa el área de trabajo para localizar sesiones, proyectos, tareas y archivos. El dictado convierte un encargo hablado en texto editable. La voz en tiempo real te permite conversar. Antes de ejecutar el encargo, revisa el modelo, el nivel de esfuerzo y los permisos.</p>
+  
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-5" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-5" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav></div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-5" data-kind="Práctica" style="--tone:var(--accent)" data-theme="5" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-5" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-5" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-5" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 03 · Práctica</p>
+  <h2 id="practica-5">Interfaz, dictado y voz</h2>
+  <p class="activity">Dicta un encargo breve. Subraya la entrada, la salida y las condiciones verificables en el texto final.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-5" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-5" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="5" data-answer="4" data-feedback="Cotejar el dictado con el encargo confirma qué datos usar, qué entregar y qué condiciones cumplir.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Qué revisión confirma que el dictado conserva el encargo original?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-5" value="1"><span>Revisar la ortografía y la puntuación del texto.</span></label><label><input type="radio" name="pregunta-5" value="2"><span>Confirmar los nombres de archivos y el orden de los párrafos.</span></label><label><input type="radio" name="pregunta-5" value="3"><span>Verificar el tono de la redacción y el formato del documento.</span></label><label><input type="radio" name="pregunta-5" value="4"><span>Cotejar la entrada, el entregable y las condiciones con el encargo.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="5" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="5" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-6" data-kind="Detalle" data-theme="6" style="--tone:var(--accent)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-6" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-6" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-6" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 4 · Temario</p>
+<h2 id="temas-6">Proyecto 1 · Tu primera landing</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/diseno-adaptable.webp}}" alt="La misma página web adaptable en las pantallas de un portátil y un teléfono" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-6-1">Crear con Sites una landing desde cero, de la idea al primer sitio</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-6-1" type="checkbox" aria-labelledby="titulo-subtema-6-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-6-2">Probar el diseño adaptable y dirigir las correcciones con steering</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-6-2" type="checkbox" aria-labelledby="titulo-subtema-6-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-6-3">Publicar la página y comprobarla fuera de la vista previa</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-6-3" type="checkbox" aria-labelledby="titulo-subtema-6-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-6" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-6" data-kind="Capítulo" data-theme="6" style="--tone:var(--accent)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-6" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-6" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-6" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 04</p>
+  <h2 id="capitulo-6">Proyecto 1 · Tu primera landing</h2>
+  <p class="lead explanation-summary">Define la audiencia, el propósito y la acción principal de la landing. Comparte referencias, genera una primera versión y revisa en el navegador que los enlaces, botones y textos funcionen tanto en escritorio como en móvil antes de publicar.</p>
+  <nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-6" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-6" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav><div class="slide-actions"><a class="control" href="#proyecto-1">Proyecto 1 →</a></div>
+</div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-6" data-kind="Práctica" style="--tone:var(--accent)" data-theme="6" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-6" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-6" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-6" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 04 · Práctica</p>
+  <h2 id="practica-6">De la idea a una página web</h2>
+  <p class="activity">Prueba el menú y el bloque de servicios en dos tamaños de pantalla. Registra dos hallazgos y vuelve a comprobarlos después de corregir.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-6" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-6" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="6" data-answer="1" data-feedback="Abrir los destinos en ambos tamaños comprueba el funcionamiento del menú en las dos vistas solicitadas.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Qué evidencia comprueba que los enlaces del menú funcionan en ambos tamaños?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-6" value="0"><span>Capturar el menú abierto en los dos tamaños.</span></label><label><input type="radio" name="pregunta-6" value="1"><span>Registrar que cada enlace abre su destino en ambos tamaños.</span></label><label><input type="radio" name="pregunta-6" value="2"><span>Probar todos los enlaces en la vista de escritorio.</span></label><label><input type="radio" name="pregunta-6" value="3"><span>Revisar en el código que los enlaces tengan una dirección.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="6" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="6" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-7" data-kind="Detalle" data-theme="7" style="--tone:var(--accent)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-7" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-7" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-7" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 5 · Temario</p>
+<h2 id="temas-7">Tokens, modelos y contexto</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/tokens.webp}}" alt="Fichas de palabras y fragmentos de papel ordenados para representar los tokens y el contexto" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-7-1">Tokens, ventana de contexto y límites de uso</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-7-1" type="checkbox" aria-labelledby="titulo-subtema-7-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-7-2">Elegir entre Astra, Sol, Terra y Luna según el encargo</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-7-2" type="checkbox" aria-labelledby="titulo-subtema-7-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-7-3">Niveles de razonamiento: bajo, medio, alto y muy alto</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-7-3" type="checkbox" aria-labelledby="titulo-subtema-7-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-7-4">Compactar el contexto y entender la suscripción y los costos de herramientas externas</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-7-4" type="checkbox" aria-labelledby="titulo-subtema-7-4"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-7" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-7" data-kind="Capítulo" data-theme="7" style="--tone:var(--accent)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-7" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-7" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-7" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 05</p>
+  <h2 id="capitulo-7">Tokens, modelos y contexto</h2>
+  <p class="lead explanation-summary">Los tokens representan el volumen de información que ocupa el contexto. Escoge un modelo y un nivel de razonamiento acordes con la tarea, aporta los archivos pertinentes y resume las decisiones cuando retomes un trabajo largo.</p>
+  
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-7" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-7" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav></div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-7" data-kind="Práctica" style="--tone:var(--accent)" data-theme="7" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-7" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-7" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-7" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 05 · Práctica</p>
+  <h2 id="practica-7">Modelos, tokens y contexto</h2>
+  <p class="activity">Envía el mismo encargo dos veces, primero sin referencias y luego con el temario adjunto. Contrasta una afirmación de cada respuesta con el temario e identifica qué dato mejoró la respuesta.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-7" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-7" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="7" data-answer="3" data-feedback="Usar la misma fuente y el mismo criterio permite identificar qué afirmaciones se ajustan mejor al temario.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Cómo compruebas si el temario mejoró la precisión de la respuesta?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-7" value="1"><span>Cambiar el encargo en la segunda prueba y comparar las salidas.</span></label><label><input type="radio" name="pregunta-7" value="2"><span>Valorar las respuestas por extensión y nivel de detalle.</span></label><label><input type="radio" name="pregunta-7" value="3"><span>Aplicar el mismo criterio a ambas respuestas usando el temario.</span></label><label><input type="radio" name="pregunta-7" value="4"><span>Consultar una fuente distinta para verificar cada respuesta.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="7" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="7" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-8" data-kind="Detalle" data-theme="8" style="--tone:var(--accent)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-8" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-8" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-8" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 6 · Temario</p>
+<h2 id="temas-8">Control</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/control-codigo.webp}}" alt="Persona revisando cambios de código con una lista de verificación junto al monitor" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-8-1">Modos de permisos y cómo limitar el acceso del agente</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-8-1" type="checkbox" aria-labelledby="titulo-subtema-8-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-8-2">Usar Plan Mode para definir los pasos antes de modificar archivos</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-8-2" type="checkbox" aria-labelledby="titulo-subtema-8-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-8-3">Revisar los cambios y volver a una versión anterior</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-8-3" type="checkbox" aria-labelledby="titulo-subtema-8-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-8" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-8" data-kind="Capítulo" data-theme="8" style="--tone:var(--accent)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-8" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-8" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-8" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 06</p>
+  <h2 id="capitulo-8">Control</h2>
+  <p class="lead explanation-summary">Delimita el objetivo, los archivos afectados y los permisos. Usa el modo Plan para acordar los pasos y las pruebas antes de ejecutar. Después del cambio, repite la comprobación prevista y revisa qué se modificó.</p>
+  
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-8" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-8" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav></div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-8" data-kind="Práctica" style="--tone:var(--accent)" data-theme="8" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-8" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-8" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-8" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 06 · Práctica</p>
+  <h2 id="practica-8">Permisos y modo Plan</h2>
+  <p class="activity">Escribe un plan con dos acciones y una comprobación. Explica por qué el cambio solo necesita acceso a la carpeta del taller.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-8" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-8" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="8" data-answer="0" data-feedback="El plan debe acotar el acceso, describir las acciones y anticipar cómo se verificará el cambio.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Qué plan cumple el encargo y acota el acceso a la carpeta del taller?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-8" value="0"><span>Limita el acceso a la carpeta, enumera dos acciones y define una prueba.</span></label><label><input type="radio" name="pregunta-8" value="1"><span>Detalla dos acciones y una prueba con acceso a todo el disco.</span></label><label><input type="radio" name="pregunta-8" value="2"><span>Acota la carpeta y las acciones, y deja pendiente definir la prueba.</span></label><label><input type="radio" name="pregunta-8" value="3"><span>Identifica la carpeta y la prueba, y delega la elección de las acciones.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="8" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="8" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-9" data-kind="Detalle" data-theme="9" style="--tone:var(--accent)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-9" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-9" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-9" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 7 · Temario</p>
+<h2 id="temas-9">Estructura de los proyectos</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/estructura-proyecto.webp}}" alt="Carpeta de proyecto, cuaderno y portátil con un árbol de archivos" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-9-1">Alcance global y local de las instrucciones en AGENTS.md</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-9-1" type="checkbox" aria-labelledby="titulo-subtema-9-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-9-2">Organizar carpetas, fuentes y entregables</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-9-2" type="checkbox" aria-labelledby="titulo-subtema-9-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-9-3">Conservar la memoria, el contexto entre tareas y el estado del proyecto</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-9-3" type="checkbox" aria-labelledby="titulo-subtema-9-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-9-4">Proyecto 2 · Entender la carpeta de Handy antes de modificar la aplicación</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-9-4" type="checkbox" aria-labelledby="titulo-subtema-9-4"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-9" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-9" data-kind="Capítulo" data-theme="9" style="--tone:var(--accent)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-9" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-9" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-9" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 07</p>
+  <h2 id="capitulo-9">Estructura de los proyectos</h2>
+  <p class="lead explanation-summary">Ubica los archivos de entrada, los componentes y los comandos de prueba. Usa AGENTS.md para explicar cómo trabajar en el proyecto y comprobar los cambios. Registra las decisiones y el siguiente paso para retomar la tarea.</p>
+  <nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-9" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-9" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav><div class="slide-actions"><a class="control" href="#proyecto-2">Proyecto 2 →</a></div>
+</div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-9" data-kind="Práctica" style="--tone:var(--accent)" data-theme="9" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-9" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-9" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-9" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 07 · Práctica</p>
+  <h2 id="practica-9">Estructura y continuidad de un proyecto</h2>
+  <p class="activity">Intercambia la carpeta con otra persona y pídele que localice la página inicial y ejecute una prueba usando la documentación.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-9" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-9" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="9" data-answer="1" data-feedback="La ruta identifica el punto de entrada y los pasos con un resultado esperado permiten repetir la prueba.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Qué documentación permite localizar la entrada y repetir la prueba?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-9" value="0"><span>La lista de archivos modificados y la fecha de la última edición.</span></label><label><input type="radio" name="pregunta-9" value="1"><span>La ruta inicial, los pasos de la prueba y el resultado esperado.</span></label><label><input type="radio" name="pregunta-9" value="2"><span>La captura de la prueba ejecutada en el equipo de quien editó.</span></label><label><input type="radio" name="pregunta-9" value="4"><span>El resultado esperado y la versión actual del proyecto.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="9" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="9" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-10" data-kind="Detalle" data-theme="10" style="--tone:var(--accent-2)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-10" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-10" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-10" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 8 · Temario</p>
+<h2 id="temas-10">MCP y conectores</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/conectores.webp}}" alt="Monitor panorámico con un flujo de trabajo y un concentrador de red en el escritorio" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-10-1">Cómo se relacionan los plugins, MCP y las API al conectar herramientas</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-10-1" type="checkbox" aria-labelledby="titulo-subtema-10-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-10-2">Realizar la primera conexión con Higgsfield paso a paso</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-10-2" type="checkbox" aria-labelledby="titulo-subtema-10-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-10-3">Comparar herramientas y modelos, y revisar el consumo de créditos y de API</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-10-3" type="checkbox" aria-labelledby="titulo-subtema-10-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-10" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-10" data-kind="Capítulo" data-theme="10" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-10" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-10" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-10" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 08</p>
+  <h2 id="capitulo-10">MCP y conectores</h2>
+  <p class="lead explanation-summary">Los conectores y MCP permiten a Codex consultar una fuente o usar una herramienta externa. Parte de una necesidad concreta, prueba una operación pequeña y revisa su respuesta, los permisos concedidos y el consumo del servicio.</p>
+  
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-10" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-10" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav></div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-10" data-kind="Práctica" style="--tone:var(--accent-2)" data-theme="10" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-10" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-10" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-10" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 08 · Práctica</p>
+  <h2 id="practica-10">MCP y herramientas conectadas</h2>
+  <p class="activity">Documenta una lectura de prueba con entrada, salida y evidencia. Si la conexión no está disponible, usa un archivo de ejemplo y describe la consulta.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-10" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-10" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="10" data-answer="3" data-feedback="Un registro conocido ofrece un valor de referencia para comprobar el campo devuelto por la integración.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Qué prueba verifica que la herramienta conectada devuelve el dato correcto?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-10" value="0"><span>Comprobar que el conector aparece como activo en el panel.</span></label><label><input type="radio" name="pregunta-10" value="1"><span>Consultar un registro nuevo y revisar el formato de la salida.</span></label><label><input type="radio" name="pregunta-10" value="3"><span>Consultar un registro conocido y cotejar el campo con su fuente.</span></label><label><input type="radio" name="pregunta-10" value="4"><span>Repetir una consulta y comprobar que devuelve el mismo valor.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="10" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="10" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-11" data-kind="Detalle" data-theme="11" style="--tone:var(--accent-2)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-11" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-11" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-11" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 9 · Temario</p>
+<h2 id="temas-11">Proyecto 3 · Un corto de animación 3D</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/guion-grafico.webp}}" alt="Estación de edición con un guion gráfico y una escena de un vikingo y un loro en el monitor" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-11-1">Crear la hoja de referencia para un vikingo y un loro en una taberna</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-11-1" type="checkbox" aria-labelledby="titulo-subtema-11-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-11-2">Seleccionar y adjuntar referencias para mantener el aspecto de los personajes</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-11-2" type="checkbox" aria-labelledby="titulo-subtema-11-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-11-3">Generar un corto de 30 segundos con Seedance 2.5</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-11-3" type="checkbox" aria-labelledby="titulo-subtema-11-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-11-4">Revisar la continuidad, las acciones y el sonido del corto</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-11-4" type="checkbox" aria-labelledby="titulo-subtema-11-4"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-11" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-11" data-kind="Capítulo" data-theme="11" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-11" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-11" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-11" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 09</p>
+  <h2 id="capitulo-11">Proyecto 3 · Un corto de animación 3D</h2>
+  <p class="lead explanation-summary">Prepara un guion breve y referencias para mantener reconocibles a los personajes y el entorno. Genera clips por escena, organízalos y revisa que las acciones, el sonido y la duración tengan continuidad en el montaje.</p>
+  <nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-11" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-11" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav><div class="slide-actions"><a class="control" href="#proyecto-3">Proyecto 3 →</a></div>
+
+</div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-11" data-kind="Práctica" style="--tone:var(--accent-2)" data-theme="11" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-11" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-11" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-11" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 09 · Práctica</p>
+  <h2 id="practica-11">Producción de un corto 3D</h2>
+  <p class="activity">Prepara tres viñetas. Marca dos elementos que deban permanecer reconocibles al pasar de un plano al siguiente.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-11" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-11" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="11" data-answer="4" data-feedback="El color debe mantenerse entre planos cuando la referencia visual establece que se trata de la misma pieza.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Qué observación indica un fallo de continuidad entre dos planos?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-11" value="0"><span>El encuadre pasa de un plano general a un detalle previsto.</span></label><label><input type="radio" name="pregunta-11" value="2"><span>El enfoque pasa de la pieza al fondo como indica la viñeta.</span></label><label><input type="radio" name="pregunta-11" value="3"><span>La luz cambia al entrar en otra escena prevista en el guion.</span></label><label><input type="radio" name="pregunta-11" value="4"><span>La misma pieza cambia de color sin una causa en el guion.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="11" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="11" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-12" data-kind="Detalle" data-theme="12" style="--tone:var(--accent-2)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-12" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-12" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-12" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 10 · Temario</p>
+<h2 id="temas-12">Browser, Computer y Phone Use</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/computadora-y-telefono.webp}}" alt="Persona consultando el mismo contenido en un monitor, un portátil y un teléfono" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-12-1">Navegador integrado en Codex y extensión para trabajar en pestañas de Chrome</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-12-1" type="checkbox" aria-labelledby="titulo-subtema-12-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-12-2">Computer Use en Mac y Windows: permisos y aplicaciones</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-12-2" type="checkbox" aria-labelledby="titulo-subtema-12-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-12-3">Continuar una sesión de Codex desde el teléfono con Remote Control</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-12-3" type="checkbox" aria-labelledby="titulo-subtema-12-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-12-4">Proyecto 4 · Investigar ideas en YouTube, Google Trends y X con sus fuentes</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-12-4" type="checkbox" aria-labelledby="titulo-subtema-12-4"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-12" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-12" data-kind="Capítulo" data-theme="12" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-12" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-12" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-12" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 10</p>
+  <h2 id="capitulo-12">Browser, Computer y Phone Use</h2>
+  <p class="lead explanation-summary">Usa el navegador para consultar páginas y guardar evidencia, y el computador para abrir o editar archivos en la aplicación adecuada. Deja registrado el estado de la tarea para retomarla desde otro dispositivo, incluido el teléfono.</p>
+  <nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-12" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-12" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav><div class="slide-actions"><a class="control" href="#proyecto-4">Proyecto 4 →</a></div>
+</div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-12" data-kind="Práctica" style="--tone:var(--accent-2)" data-theme="12" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-12" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-12" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-12" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 10 · Práctica</p>
+  <h2 id="practica-12">Navegador, computador y teléfono</h2>
+  <p class="activity">Escoge un hallazgo y abre su enlace. Señala la sección exacta que lo respalda y registra cualquier dato pendiente.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-12" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-12" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="12" data-answer="0" data-feedback="La ubicación exacta permite repetir la consulta y comprobar qué parte de la fuente sustenta el dato.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Qué registro permite verificar directamente la afirmación en su fuente?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-12" value="0"><span>El enlace y la sección exacta de la fuente que respalda el dato.</span></label><label><input type="radio" name="pregunta-12" value="1"><span>La portada del sitio y un resumen del hallazgo.</span></label><label><input type="radio" name="pregunta-12" value="2"><span>Una captura recortada del dato y la fecha en que se tomó.</span></label><label><input type="radio" name="pregunta-12" value="4"><span>El título de la fuente y una paráfrasis del hallazgo.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="12" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="12" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-13" data-kind="Detalle" data-theme="13" style="--tone:var(--accent-2)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-13" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-13" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-13" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 11 · Temario</p>
+<h2 id="temas-13">Skills</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/procedimientos.webp}}" alt="Tarjetas de procedimiento y dos composiciones de diseño sobre una mesa" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-13-1">Cuándo conviene crear una skill, con el investigador de ideas y el flujo de YouTube como casos</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-13-1" type="checkbox" aria-labelledby="titulo-subtema-13-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-13-2">Instalar, combinar y compartir skills personales o de proyecto</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-13-2" type="checkbox" aria-labelledby="titulo-subtema-13-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-13-3">Grabar un proceso con Record a Skill, revisarlo y volver a usarlo</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-13-3" type="checkbox" aria-labelledby="titulo-subtema-13-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-13-4">Proyecto 5 · Crear y probar una skill para generar o replicar anuncios</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-13-4" type="checkbox" aria-labelledby="titulo-subtema-13-4"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-13" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-13" data-kind="Capítulo" data-theme="13" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-13" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-13" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-13" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 11</p>
+  <h2 id="capitulo-13">Skills</h2>
+  <p class="lead explanation-summary">Una skill convierte un proceso probado en instrucciones reutilizables. Resuelve un ejemplo, documenta entradas, pasos y criterios de entrega, y prueba la misma skill con una segunda entrada para detectar instrucciones ambiguas.</p>
+  <nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-13" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-13" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav><div class="slide-actions"><a class="control" href="#proyecto-5">Proyecto 5 →</a></div>
+</div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-13" data-kind="Práctica" style="--tone:var(--accent-2)" data-theme="13" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-13" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-13" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-13" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 11 · Práctica</p>
+  <h2 id="practica-13">Skills y creación de anuncios</h2>
+  <p class="activity">Usa una misma skill para generar anuncios de dos servicios. Comprueba que cada anuncio comunique el beneficio correcto y se dirija al público definido.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-13" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-13" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="13" data-answer="2" data-feedback="Probar entradas distintas muestra si la skill ajusta el beneficio y el público a los datos de cada servicio.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Qué prueba demuestra que la misma skill se adapta a dos servicios?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-13" value="0"><span>Ejecutarla dos veces con el primer servicio y comparar el tono.</span></label><label><input type="radio" name="pregunta-13" value="1"><span>Generar el segundo anuncio y revisar su formato visual.</span></label><label><input type="radio" name="pregunta-13" value="2"><span>Probarla con ambos servicios y verificar su beneficio y público.</span></label><label><input type="radio" name="pregunta-13" value="3"><span>Editar el primer anuncio para sustituir el nombre del servicio.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="13" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="13" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-14" data-kind="Detalle" data-theme="14" style="--tone:var(--accent-2)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-14" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-14" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-14" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 12 · Temario</p>
+<h2 id="temas-14">Computer Use en el mundo real</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/impresion-3d.webp}}" alt="Impresora 3D con una maqueta arquitectónica junto a su modelo digital en un portátil" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><div><strong id="titulo-subtema-14-1">Proyecto 6 · Crear un primer archivo 3D e imprimir la pieza</strong><ul class="outline-details"><li>Abrir Blender con Computer Use y convertir un logotipo en una pieza 3D.</li><li>Exportar a STL y preparar el laminado para la impresión.</li></ul></div><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-14-1" type="checkbox" aria-labelledby="titulo-subtema-14-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><div><strong id="titulo-subtema-14-2">Proyecto 7 · Pasar de un video a una maqueta 3D</strong><ul class="outline-details"><li>Usar fotos, video y medidas para reconstruir el espacio.</li><li>Modificar la distribución de la oficina en el modelo editable.</li></ul></div><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-14-2" type="checkbox" aria-labelledby="titulo-subtema-14-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-14" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-14" data-kind="Capítulo" data-theme="14" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-14" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-14" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-14" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 12</p>
+  <h2 id="capitulo-14">Computer Use en el mundo real</h2>
+  <p class="lead explanation-summary">Con Computer Use puedes trabajar en aplicaciones de modelado para preparar una pieza imprimible o una maqueta de oficina. Define las dimensiones y referencias de escala, exporta al formato requerido y comprueba la geometría en la aplicación de destino.</p>
+  <nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-14" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-14" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav><div class="slide-actions"><a class="control" href="#proyecto-6">Proyecto 6 →</a><a class="control" href="#proyecto-7">Proyecto 7 →</a></div>
+
+</div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-14" data-kind="Práctica" style="--tone:var(--accent-2)" data-theme="14" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-14" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-14" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-14" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 12 · Práctica</p>
+  <h2 id="practica-14">Impresión 3D y maqueta de oficina</h2>
+  <p class="activity">Exporta una pieza de prueba a STL y comprueba dos dimensiones en el laminador. Registra el valor previsto y el observado.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-14" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-14" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="14" data-answer="4" data-feedback="Medir el STL abierto en el laminador permite detectar cambios de escala o unidades después de exportar.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Cómo verificas que el STL conserva las dimensiones previstas?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-14" value="1"><span>Revisar las medidas del modelo original antes de exportar.</span></label><label><input type="radio" name="pregunta-14" value="2"><span>Confirmar que la pieza cabe en la plataforma de impresión.</span></label><label><input type="radio" name="pregunta-14" value="3"><span>Comparar la forma de la pieza en dos vistas del laminador.</span></label><label><input type="radio" name="pregunta-14" value="4"><span>Medir dos dimensiones en el laminador y cotejarlas con el diseño.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="14" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="14" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-15" data-kind="Detalle" data-theme="15" style="--tone:var(--amber)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-15" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-15" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-15" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 13 · Temario</p>
+<h2 id="temas-15">Subagentes y orquestación</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/coordinacion.webp}}" alt="Estación de trabajo que reúne video, texto y mensajería en una misma pantalla" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-15-1">Tareas secuenciales vs paralelas: subagentes y Ultra</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-15-1" type="checkbox" aria-labelledby="titulo-subtema-15-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-15-2">PROYECTO 8: TU OFFBOARDING DE YOUTUBE. Del video al paquete de publicación</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-15-2" type="checkbox" aria-labelledby="titulo-subtema-15-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-15-3">Imagen, copies y correo: repartir el trabajo con skills</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-15-3" type="checkbox" aria-labelledby="titulo-subtema-15-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-15-4">Reunir, revisar y dejar cada pieza lista para publicar</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-15-4" type="checkbox" aria-labelledby="titulo-subtema-15-4"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-15" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-15" data-kind="Capítulo" data-theme="15" style="--tone:var(--amber)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-15" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-15" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-15" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 13</p>
+  <h2 id="capitulo-15">Subagentes y orquestación</h2>
+  <p class="lead explanation-summary">Distribuye el trabajo que puede avanzar en paralelo y define para cada subagente sus fuentes y su entrega. Reúne las piezas, corrige diferencias de tono o formato y comprueba el paquete final frente al encargo.</p>
+  <nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-15" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-15" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav><div class="slide-actions"><a class="control" href="#proyecto-8">Proyecto 8 →</a></div>
+</div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-15" data-kind="Práctica" style="--tone:var(--amber)" data-theme="15" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-15" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-15" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-15" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 13 · Práctica</p>
+  <h2 id="practica-15">Subagentes y coordinación</h2>
+  <p class="activity">Escribe tres encargos breves y una lista común de revisión. Comprueba que el título y el público coincidan en todas las entregas.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-15" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-15" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="15" data-answer="0" data-feedback="Una ficha común permite comprobar la consistencia de los hechos, el título, el público y el tono de las entregas.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Qué referencia común necesitan los tres encargos para producir entregas coherentes?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-15" value="0"><span>Una ficha con título, hechos, público, tono y criterios de revisión.</span></label><label><input type="radio" name="pregunta-15" value="1"><span>Una extensión común y un calendario de entrega por agente.</span></label><label><input type="radio" name="pregunta-15" value="3"><span>Una carpeta con recursos y libertad para elegir los criterios.</span></label><label><input type="radio" name="pregunta-15" value="4"><span>La primera entrega como modelo de estilo para los otros agentes.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="15" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="15" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-16" data-kind="Detalle" data-theme="16" style="--tone:var(--amber)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-16" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-16" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-16" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 14 · Temario</p>
+<h2 id="temas-16">Automatización 24/7 local y en la nube</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/automatizacion.webp}}" alt="Estación con un calendario de tareas, equipos de red y un gabinete de servidores" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-16-1">Los dos entornos de ejecución 24/7: local y en la nube</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-16-1" type="checkbox" aria-labelledby="titulo-subtema-16-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-16-2">Caso de los cuatro canales de YouTube automatizados</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-16-2" type="checkbox" aria-labelledby="titulo-subtema-16-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-16-3">Gestionar disparadores, notificaciones, consumo y pausas</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-16-3" type="checkbox" aria-labelledby="titulo-subtema-16-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-16-4">Proyecto 9 · Preparar un boletín personalizado y un asistente de buenos días con agenda y prioridades, en local y en la nube</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-16-4" type="checkbox" aria-labelledby="titulo-subtema-16-4"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-16" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-16" data-kind="Capítulo" data-theme="16" style="--tone:var(--amber)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-16" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-16" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-16" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 14</p>
+  <h2 id="capitulo-16">Automatización 24/7 local y en la nube</h2>
+  <p class="lead explanation-summary">Programa tareas con entradas, resultados y criterios de revisión definidos. Elige entre ejecución local y en la nube, configura el horario o el evento que la activa y revisa registros, duplicados y errores. Deja previsto cómo pausarla.</p>
+  <nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-16" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-16" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav><div class="slide-actions"><a class="control" href="#proyecto-9">Proyecto 9 →</a></div>
+</div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-16" data-kind="Práctica" style="--tone:var(--amber)" data-theme="16" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-16" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-16" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-16" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 14 · Práctica</p>
+  <h2 id="practica-16">Automatización local y en la nube</h2>
+  <p class="activity">Simula dos días, uno con novedades y otro sin datos nuevos. Compara el comportamiento y la trazabilidad de la salida.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-16" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-16" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="16" data-answer="3" data-feedback="El registro por ejecución permite reconstruir qué fuentes se consultaron y si hubo novedades.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Qué registro permite auditar las ejecuciones con y sin novedades?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-16" value="0"><span>El horario configurado y una captura de la tarea activa.</span></label><label><input type="radio" name="pregunta-16" value="1"><span>El último resumen disponible y su hora de publicación.</span></label><label><input type="radio" name="pregunta-16" value="3"><span>La fecha, las fuentes consultadas y el resultado de cada ejecución.</span></label><label><input type="radio" name="pregunta-16" value="4"><span>La lista de fuentes habilitadas al configurar la rutina.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="16" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="16" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-17" data-kind="Detalle" data-theme="17" style="--tone:var(--amber)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-17" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-17" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-17" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+<p class="kicker">Módulo 15 · Temario</p>
+<h2 id="temas-17">Proyecto 10 · Tu segundo cerebro y handoff</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/grafo.webp}}" alt="Portátil con un grafo de notas enlazadas junto a un cuaderno abierto" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-17-1">Reunir las fuentes de la biblioteca personal en Markdown y Obsidian</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-17-1" type="checkbox" aria-labelledby="titulo-subtema-17-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-17-2">Consultar las fuentes y explorar la búsqueda y la recuperación aumentada (RAG)</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-17-2" type="checkbox" aria-labelledby="titulo-subtema-17-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-17-3">Preparar el handoff al cambiar de herramienta con archivos, contexto, memoria y conexiones</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-17-3" type="checkbox" aria-labelledby="titulo-subtema-17-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-17-4">Automatizar la actualización o reindexación de la base de conocimiento</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-17-4" type="checkbox" aria-labelledby="titulo-subtema-17-4"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-17" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-17" data-kind="Capítulo" data-theme="17" style="--tone:var(--amber)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-17" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-17" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-17" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 15</p>
+  <h2 id="capitulo-17">Proyecto 10 · Tu segundo cerebro y handoff</h2>
+  <p class="lead explanation-summary">Organiza notas y fuentes en Markdown y Obsidian para consultar información con referencias. Pide evidencia para las afirmaciones importantes, actualiza la base y deja documentados los archivos, el contexto y los pasos para transferir el proyecto.</p>
+  <nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-17" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#practica-17" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Ir a la práctica</a></nav><div class="slide-actions"><a class="control" href="#proyecto-10">Proyecto 10 →</a></div>
+</div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson" aria-labelledby="practica-17" data-kind="Práctica" style="--tone:var(--amber)" data-theme="17" hidden>
+
+<div class="lesson-header">
+  <nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-17" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-17" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a><a href="#practica-17" aria-current="page" data-nav-icon="practice"><span class="nav-icon" aria-hidden="true"></span>Práctica</a></nav>
+  <p class="kicker">Módulo 15 · Práctica</p>
+  <h2 id="practica-17">Base de conocimiento personal</h2>
+  <p class="activity">Crea tres notas de prueba. Haz una consulta respaldada y otra que exceda las fuentes. Revisa el comportamiento de ambas respuestas.</p>
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-17" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#capitulo-17" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a></nav></div>
+<div class="lesson-body">
+  <form class="quiz" data-theme="17" data-answer="1" data-feedback="Declarar la ausencia de evidencia y citar las notas revisadas deja claro qué se pudo verificar.">
+    <fieldset style="border:0;padding:0;margin:0;min-width:0">
+      <legend>Comprobación</legend>
+      <h3>¿Qué respuesta es verificable cuando falta evidencia en las notas?</h3>
+      <div class="choices"><label><input type="radio" name="pregunta-17" value="0"><span>Tomar la nota más reciente y asumir que el dato sigue vigente.</span></label><label><input type="radio" name="pregunta-17" value="1"><span>Indicar que falta evidencia y citar las notas que se revisaron.</span></label><label><input type="radio" name="pregunta-17" value="2"><span>Dar una estimación y citar una nota sobre un tema cercano.</span></label><label><input type="radio" name="pregunta-17" value="3"><span>Responder con el dato más frecuente y agregar una advertencia.</span></label></div>
+    </fieldset>
+    <div class="quiz-actions">
+      <button type="button" class="control practice-group-trigger" data-group-question="17" aria-label="Responder en grupo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h8m-3-3 3 3-3 3"/></svg></button>
+      <button type="button" class="control results-icon" data-group-results="17" aria-label="Ver resultados del grupo" aria-haspopup="dialog" aria-controls="group-results-dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4v15h16M8 15v-4m5 4V7m5 8V5"/></svg></button>
+      <button type="submit" class="control quiz-check-action" aria-label="Comprobar respuesta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4 10-10"/></svg></button>
+    </div>
+    <div class="group-status"><span class="group-message" role="status"></span><button type="button" class="control group-setup" hidden>Vincular presentación</button></div>
+    <p class="feedback" role="status"></p>
+  </form>
+</div>
+
+</section>
+<section class="slide module-outline" aria-labelledby="temas-18" data-kind="Detalle" data-theme="18" style="--tone:var(--amber)" hidden>
+<div class="outline-heading"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-18" aria-current="page" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-18" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a></nav>
+<p class="kicker">Módulo 16 · Temario</p>
+<h2 id="temas-18">Próximos pasos</h2>
+</div><figure class="module-art"><img src="{{ARCHIVO:recursos/curso-codex/paramo.webp}}" alt="Dos senderos se bifurcan entre los pajonales del páramo ecuatoriano" decoding="async" width="1080" height="720"></figure><div class="outline-body"><ol class="outline-points">
+  <li><span id="titulo-subtema-18-1">Recapitular el recorrido del curso</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-18-1" type="checkbox" aria-labelledby="titulo-subtema-18-1"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-18-2">Revisar los proyectos que se construyeron</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-18-2" type="checkbox" aria-labelledby="titulo-subtema-18-2"><span class="completion-check" aria-hidden="true"></span></label></li>
+  <li><span id="titulo-subtema-18-3">Trazar los siguientes pasos según el perfil: emprendimiento, agencia o trabajo independiente</span><label class="subtopic-control" title="Marcar o desmarcar subtema"><input class="subtopic-check sr" id="subtema-18-3" type="checkbox" aria-labelledby="titulo-subtema-18-3"><span class="completion-check" aria-hidden="true"></span></label></li>
+</ol>
+<div class="slide-actions"><a class="control primary" href="#capitulo-18" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Ir a la explicación</a><a class="control" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Volver al temario</a></div>
+</div></section>
+<section class="slide lesson lesson-explanation" aria-labelledby="capitulo-18" data-kind="Capítulo" data-theme="18" style="--tone:var(--amber)" hidden>
+
+<div class="lesson-header"><nav class="module-tabs" aria-label="Diapositivas del módulo"><a href="#temas-18" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a href="#capitulo-18" aria-current="page" data-nav-icon="explanation"><span class="nav-icon" aria-hidden="true"></span>Explicación</a></nav>
+  <p class="kicker">Módulo 16</p>
+  <h2 id="capitulo-18">Próximos pasos</h2>
+  <p class="lead explanation-summary">Presenta el entregable con un caso de prueba, explica una decisión con su evidencia y registra las correcciones. Deja la carpeta ordenada con las fuentes, las instrucciones y las tareas pendientes para continuar el proyecto.</p>
+  
+<nav class="slide-actions module-actions" aria-label="Accesos de navegación"><a class="control" href="#temas-18" data-nav-icon="subtopics"><span class="nav-icon" aria-hidden="true"></span>Subtemas</a><a class="control primary" href="#temario" data-nav-icon="course"><span class="nav-icon" aria-hidden="true"></span>Temario</a></nav></div>
+
+
+<div class="board-slot"></div>
+</section>
+<section class="slide lesson lab" aria-labelledby="proyecto-1" data-kind="Proyecto" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header">
+  <p class="kicker">Proyecto práctico 01 de 10</p>
+  <h2 id="proyecto-1">Página de presentación</h2>
+  <p class="lead">Crea una página de presentación para una clínica dental u otro servicio profesional.</p>
+  <div class="slide-actions"><a class="control" href="#capitulo-6">Volver al capítulo</a></div>
+</div>
+<div class="lesson-body">
+  <ol class="step-list"><li><span>01</span><p>Redacta una ficha con audiencia, objetivo y secciones.</p></li><li><span>02</span><p>Pide una primera versión y ábrela en el navegador.</p></li><li><span>03</span><p>Revisa texto, enlaces y diseño en dos tamaños de pantalla.</p></li><li><span>04</span><p>Corrige dos problemas y documenta qué cambió.</p></li></ol>
+  <aside class="check-panel"><strong>Evidencia de entrega</strong><p>Página funcional y lista de verificaciones.</p></aside>
+</div>
+
+</section>
+<section class="slide lesson lab" aria-labelledby="proyecto-2" data-kind="Proyecto" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header">
+  <p class="kicker">Proyecto práctico 02 de 10</p>
+  <h2 id="proyecto-2">Personalización de Handy</h2>
+  <p class="lead">El caso de Handy muestra cómo retomar y modificar una aplicación existente.</p>
+  <div class="slide-actions"><a class="control" href="#capitulo-9">Volver al capítulo</a></div>
+</div>
+<div class="lesson-body">
+  <ol class="step-list"><li><span>01</span><p>Identifica el punto de entrada y las instrucciones disponibles.</p></li><li><span>02</span><p>Define un cambio pequeño de interfaz o configuración.</p></li><li><span>03</span><p>Aplica el cambio y revisa las diferencias en archivos.</p></li><li><span>04</span><p>Prueba la acción principal antes y después del cambio.</p></li></ol>
+  <aside class="check-panel"><strong>Evidencia de entrega</strong><p>Captura del comportamiento y registro del cambio.</p></aside>
+</div>
+
+</section>
+<section class="slide lesson lab" aria-labelledby="proyecto-3" data-kind="Proyecto" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header">
+  <p class="kicker">Proyecto práctico 03 de 10</p>
+  <h2 id="proyecto-3">Corto de animación</h2>
+  <p class="lead">El autor usa una historia breve con un vikingo y un loro para ilustrar la continuidad entre escenas.</p>
+  <div class="slide-actions"><a class="control" href="#capitulo-11">Volver al capítulo</a></div>
+</div>
+<div class="lesson-body">
+  <ol class="step-list"><li><span>01</span><p>Escribe un guion dividido en escenas.</p></li><li><span>02</span><p>Prepara referencias consistentes para personajes y entorno.</p></li><li><span>03</span><p>Genera o bosqueja los clips y ordénalos.</p></li><li><span>04</span><p>Revisa transiciones y entrega un montaje o storyboard comentado.</p></li></ol>
+  <aside class="check-panel"><strong>Evidencia de entrega</strong><p>Guion, referencias y secuencia revisada.</p></aside>
+</div>
+
+</section>
+<section class="slide lesson lab" aria-labelledby="proyecto-4" data-kind="Proyecto" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header">
+  <p class="kicker">Proyecto práctico 04 de 10</p>
+  <h2 id="proyecto-4">Investigador de ideas</h2>
+  <p class="lead">Reúne referencias de YouTube y X o de otras fuentes pertinentes a tu tema.</p>
+  <div class="slide-actions"><a class="control" href="#capitulo-12">Volver al capítulo</a></div>
+</div>
+<div class="lesson-body">
+  <ol class="step-list"><li><span>01</span><p>Formula una pregunta y criterios de selección.</p></li><li><span>02</span><p>Busca tres referencias y anota sus enlaces.</p></li><li><span>03</span><p>Contrasta la afirmación de cada fuente con su contenido.</p></li><li><span>04</span><p>Entrega una propuesta respaldada por la evidencia reunida.</p></li></ol>
+  <aside class="check-panel"><strong>Evidencia de entrega</strong><p>Ficha de hallazgos con fuentes consultables.</p></aside>
+</div>
+
+</section>
+<section class="slide lesson lab" aria-labelledby="proyecto-5" data-kind="Proyecto" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header">
+  <p class="kicker">Proyecto práctico 05 de 10</p>
+  <h2 id="proyecto-5">Generador de anuncios con una skill</h2>
+  <p class="lead">Aplica un procedimiento reutilizable para producir variantes de un anuncio a partir de un encargo.</p>
+  <div class="slide-actions"><a class="control" href="#capitulo-13">Volver al capítulo</a></div>
+</div>
+<div class="lesson-body">
+  <ol class="step-list"><li><span>01</span><p>Define audiencia, mensaje, formato y criterio de aceptación.</p></li><li><span>02</span><p>Crea un ejemplo y registra los pasos que se pueden repetir.</p></li><li><span>03</span><p>Prueba el procedimiento con un segundo servicio ficticio.</p></li><li><span>04</span><p>Revisa afirmaciones, tono y correspondencia con cada encargo.</p></li></ol>
+  <aside class="check-panel"><strong>Evidencia de entrega</strong><p>Instrucciones reutilizables y dos salidas revisadas.</p></aside>
+</div>
+
+</section>
+<section class="slide lesson lab" aria-labelledby="proyecto-6" data-kind="Proyecto" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header">
+  <p class="kicker">Proyecto práctico 06 de 10</p>
+  <h2 id="proyecto-6">Pieza para impresión 3D</h2>
+  <p class="lead">Convierte una referencia gráfica en una pieza que puedas revisar en un programa de modelado.</p>
+  <div class="slide-actions"><a class="control" href="#capitulo-14">Volver al capítulo</a></div>
+</div>
+<div class="lesson-body">
+  <ol class="step-list"><li><span>01</span><p>Selecciona un contorno y define medidas.</p></li><li><span>02</span><p>Crea el modelo y comprueba su espesor.</p></li><li><span>03</span><p>Exporta al formato del taller y vuelve a abrir el archivo.</p></li><li><span>04</span><p>Verifica dimensiones y registra la comprobación.</p></li></ol>
+  <aside class="check-panel"><strong>Evidencia de entrega</strong><p>Modelo exportado y registro dimensional.</p></aside>
+</div>
+
+</section>
+<section class="slide lesson lab" aria-labelledby="proyecto-7" data-kind="Proyecto" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header">
+  <p class="kicker">Proyecto práctico 07 de 10</p>
+  <h2 id="proyecto-7">Maqueta editable de una oficina</h2>
+  <p class="lead">Construye una maqueta que permita mover y revisar los elementos del espacio.</p>
+  <div class="slide-actions"><a class="control" href="#capitulo-14">Volver al capítulo</a></div>
+</div>
+<div class="lesson-body">
+  <ol class="step-list"><li><span>01</span><p>Traza el espacio con medidas de referencia.</p></li><li><span>02</span><p>Modela paredes, mobiliario y accesos como elementos editables.</p></li><li><span>03</span><p>Organiza nombres y comprueba escala y ubicación.</p></li><li><span>04</span><p>Abre la maqueta en Blender y muestra dos vistas.</p></li></ol>
+  <aside class="check-panel"><strong>Evidencia de entrega</strong><p>Archivo editable y dos vistas de revisión.</p></aside>
+</div>
+
+</section>
+<section class="slide lesson lab" aria-labelledby="proyecto-8" data-kind="Proyecto" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header">
+  <p class="kicker">Proyecto práctico 08 de 10</p>
+  <h2 id="proyecto-8">Paquete para publicar un video</h2>
+  <p class="lead">Coordina aportes de varios agentes para preparar una sola entrega editorial.</p>
+  <div class="slide-actions"><a class="control" href="#capitulo-15">Volver al capítulo</a></div>
+</div>
+<div class="lesson-body">
+  <ol class="step-list"><li><span>01</span><p>Define el enfoque del video y sus fuentes.</p></li><li><span>02</span><p>Distribuye tareas para imagen, texto y borrador de correo.</p></li><li><span>03</span><p>Integra los componentes y verifica su coherencia.</p></li><li><span>04</span><p>Entrega el paquete listo para revisión humana.</p></li></ol>
+  <aside class="check-panel"><strong>Evidencia de entrega</strong><p>Imagen, textos y borrador reunidos en una carpeta.</p></aside>
+</div>
+
+</section>
+<section class="slide lesson lab" aria-labelledby="proyecto-9" data-kind="Proyecto" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header">
+  <p class="kicker">Proyecto práctico 09 de 10</p>
+  <h2 id="proyecto-9">Boletín y asistente diario</h2>
+  <p class="lead">Automatiza la preparación de un resumen a partir de fuentes seleccionadas.</p>
+  <div class="slide-actions"><a class="control" href="#capitulo-16">Volver al capítulo</a></div>
+</div>
+<div class="lesson-body">
+  <ol class="step-list"><li><span>01</span><p>Define fuentes, horario y formato del resumen.</p></li><li><span>02</span><p>Prepara una ejecución con entradas de prueba.</p></li><li><span>03</span><p>Verifica enlaces, fechas y repetición de contenido.</p></li><li><span>04</span><p>Documenta el entorno de ejecución y cómo pausarla.</p></li></ol>
+  <aside class="check-panel"><strong>Evidencia de entrega</strong><p>Ejemplo de boletín y registro de ejecución.</p></aside>
+</div>
+
+</section>
+<section class="slide lesson lab" aria-labelledby="proyecto-10" data-kind="Proyecto" style="--tone:var(--accent-2)" hidden>
+
+<div class="lesson-header">
+  <p class="kicker">Proyecto práctico 10 de 10</p>
+  <h2 id="proyecto-10">Segundo cerebro con Obsidian</h2>
+  <p class="lead">Construye una colección de notas enlazadas que puedas consultar con referencias.</p>
+  <div class="slide-actions"><a class="control" href="#capitulo-17">Volver al capítulo</a></div>
+</div>
+<div class="lesson-body">
+  <ol class="step-list"><li><span>01</span><p>Organiza fuentes en notas Markdown por tema.</p></li><li><span>02</span><p>Registra origen y fecha en cada nota.</p></li><li><span>03</span><p>Formula consultas y exige referencias concretas.</p></li><li><span>04</span><p>Comprueba si la respuesta cambia al actualizar una fuente.</p></li></ol>
+  <aside class="check-panel"><strong>Evidencia de entrega</strong><p>Colección editable y dos respuestas con referencias verificadas.</p></aside>
+</div>
+
+</section>
+<section class="slide split theme-closing" aria-labelledby="recursos" data-kind="Recursos" style="--tone:var(--accent)" hidden>
+  <img class="closing-mark" src="{{ARCHIVO:recursos/curso-codex/espoch-escudo.png}}" alt="ESPOCH">
+
+<div>
+  <p class="kicker">Recursos de consulta</p>
+  <h2 id="recursos">Documentación de consulta</h2>
+  <p class="lead">Consulta las buenas prácticas de OpenAI para complementar las actividades del taller.</p>
+  
+</div>
+<div class="resources">
+  
+  
+  <a href="https://learn.chatgpt.com/docs/learn/best-practices" data-course-link="Recursos del curso" aria-haspopup="dialog" aria-controls="course-link-dialog">Buenas prácticas de OpenAI <span aria-hidden="true">→</span></a>
+</div>
+
+</section>
+<svg id="presentation-ink" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
+</div></main>
+<footer class="course-footer">
+  <div class="deck-navigation">
+    <span class="counter" id="counter" aria-live="polite">01 / 62</span>
+    <div class="track" aria-hidden="true"><div id="progress"></div></div>
+    <div class="arrows">
+      <button class="control" id="prev" type="button" aria-label="Diapositiva anterior" aria-keyshortcuts="ArrowLeft" disabled>←</button>
+      <button class="control primary" id="next" type="button" aria-label="Diapositiva siguiente" aria-keyshortcuts="ArrowRight">→</button>
+    </div>
+  </div>
+  <div class="institutional-band">
+    <span class="footer-teacher">Ing. Félix A. García M.</span>
+    <img class="institutional-signature" src="{{ARCHIVO:recursos/curso-codex/firma-espoch.png}}" alt="espoch.edu.ec">
+  </div>
+</footer>
+</div>
+
+<div id="presentation-pointer" data-color="red" aria-hidden="true" hidden></div>
+<dialog id="attendance-dialog" aria-labelledby="attendance-title">
+  <div class="attendance-dialog-header">
+    <div class="attendance-dialog-brand"><img src="{{ARCHIVO:recursos/curso-codex/espoch-horizontal.png}}" alt="ESPOCH" width="33" height="37">Codex 2026</div>
+    <button id="attendance-close" type="button" class="control" autofocus>Cerrar registro</button>
+  </div>
+  <div class="attendance-dialog-body">
+    <h2 id="attendance-title">Registro de asistencia</h2>
+    <div id="attendance-projection" hidden>
+      <img id="attendance-live-qr" class="attendance-live-qr" width="280" height="280" alt="Código QR para registrar asistencia">
+      <label for="attendance-link-value">Comparte este enlace con el grupo</label>
+      <input id="attendance-link-value" class="attendance-link-value" readonly spellcheck="false">
+      <button id="copy-attendance-link" class="control primary" type="button">Copiar enlace</button>
+    </div>
+    <p id="attendance-link-status" role="status"></p>
+    <button id="attendance-retry" class="control" type="button" hidden>Habilitar nuevo QR</button>
+    <button id="attendance-link-teacher" class="control" type="button" data-open-link-dialog hidden>Vincular presentación</button>
+  </div>
+</dialog>
+
+<span class="sr" id="group-announcement" role="status"></span>
+<dialog id="group-results-dialog" class="presentation-dialog" aria-labelledby="group-results-title">
+  <header class="presentation-dialog-head">
+    <h2 id="group-results-title">Resultados del grupo</h2>
+    <form method="dialog"><button class="control dialog-close" type="submit" autofocus>Cerrar</button></form>
+  </header>
+  <div class="presentation-dialog-body">
+    <p id="group-results-context" class="dialog-context"></p>
+    <p id="group-results-question" class="dialog-question"></p>
+    <div id="group-results-chart" class="results-chart" hidden>
+      <ol aria-label="Respuestas del grupo">
+        <li data-result="correct"><span>Aciertos</span><strong>0</strong><div class="result-track"><i aria-hidden="true"></i></div></li>
+        <li data-result="incorrect"><span>Errores</span><strong>0</strong><div class="result-track"><i aria-hidden="true"></i></div></li>
+        <li data-result="total"><span>Total de respuestas</span><strong>0</strong><div class="result-track"><i aria-hidden="true"></i></div></li>
+      </ol>
+    </div>
+    <div class="results-tools"><button id="practice-qr-button" class="control" type="button" aria-haspopup="dialog" aria-controls="course-link-dialog">QR y enlace de la práctica</button></div>
+    <p id="group-results-status" class="dialog-status" role="status"></p>
+    <button class="control" type="button" data-open-link-dialog hidden>Vincular presentación</button>
+  </div>
+</dialog>
+
+<dialog id="presentation-link-dialog" class="presentation-dialog" aria-labelledby="presentation-link-title">
+  <header class="presentation-dialog-head">
+    <h2 id="presentation-link-title">Vincular presentación</h2>
+    <form method="dialog"><button class="control dialog-close" type="submit" autofocus>Cerrar</button></form>
+  </header>
+  <div class="presentation-dialog-body">
+    <p>Escanea el QR desde tu celular e inicia sesión como docente para autorizar esta presentación. El vínculo vale para hoy.</p>
+    <img class="teacher-link-qr" id="teacher-link-qr" alt="Código QR para vincular esta presentación" width="226" height="226" hidden>
+    <p id="teacher-link-status" class="dialog-status" role="status"></p>
+    <details id="teacher-link-copy" hidden>
+      <summary>Copiar enlace al celular</summary>
+      <input id="teacher-link-url" aria-label="Enlace de vinculación" readonly spellcheck="false">
+    </details>
+  </div>
+</dialog>
+
+<dialog id="course-link-dialog" class="presentation-dialog" aria-labelledby="course-link-title">
+  <header class="presentation-dialog-head">
+    <h2 id="course-link-title"></h2>
+    <form method="dialog"><button class="control dialog-close" type="submit" autofocus>Cerrar</button></form>
+  </header>
+  <div class="presentation-dialog-body">
+    <p>Escanea el código para abrir este enlace en tu celular.</p>
+    <img id="course-link-qr" class="teacher-link-qr" alt="Código QR del enlace" width="226" height="226">
+    <label class="dialog-link-label">Enlace<input id="course-link-url" readonly spellcheck="false"></label>
+  </div>
+</dialog>
+
+<dialog id="slide-index" aria-labelledby="index-title">
+  <div class="course-map-head">
+    <div class="course-map-heading">
+      <span class="course-map-emblem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 5.8 9 3l6 2.8L21 3v15.2l-6 2.8-6-2.8L3 21Z M9 3v15.2 M15 5.8V21"/></svg></span>
+      <div><h2 id="index-title">Mapa del curso</h2><p>17 módulos · 10 proyectos</p></div>
+      <form method="dialog"><button type="submit" class="map-control">Cerrar</button></form>
+    </div>
+    <div class="course-map-tools">
+      <div class="course-map-views" role="group" aria-label="Vista del mapa">
+        <button type="button" class="map-control" data-map-view="route" aria-controls="course-map-route" aria-pressed="true">Ruta completa</button>
+        <button type="button" class="map-control" data-map-view="search" aria-controls="map-search-panel" aria-pressed="false">Buscar diapositivas</button>
+      </div>
+      <nav class="course-map-shortcuts" aria-label="Accesos del curso"><a class="map-control" href="#portada" data-map-destination>Inicio</a>
+<a class="map-control" href="#resultados" data-map-destination>Resultados</a>
+<a class="map-control" href="#temario" data-map-destination>Temario</a>
+<a class="map-control" href="#recursos" data-map-destination>Recursos</a></nav>
+    </div>
+  </div>
+  <div id="course-map-route">
+    <section class="map-phase" style="--phase:#b91e22" aria-labelledby="map-phase-1">
+<div class="map-phase-title"><h3 id="map-phase-1">Fundamentos</h3><span>Módulos 00–07</span></div>
+<ol class="map-stops" start="1" aria-label="Módulos de Fundamentos">
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">00</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-2" data-map-destination><span>Bienvenida</span><span class="module-marks"><span class="completion-check module-complete" data-subtopics-complete="2" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-2" aria-label="Explicación de Bienvenida">Explicación</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">01</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-3" data-map-destination><span>El ecosistema OpenAI</span><span class="module-marks"><span class="completion-check module-complete" data-subtopics-complete="3" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-3" aria-label="Explicación de El ecosistema OpenAI">Explicación</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">02</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-4" data-map-destination><span>Instalación</span><span class="module-marks"><span class="done" data-done="4" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="4" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-4" aria-label="Explicación de Instalación">Explicación</a><a href="#practica-4" aria-label="Práctica de Instalación">Práctica</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">03</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-5" data-map-destination><span>La interfaz y voz</span><span class="module-marks"><span class="done" data-done="5" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="5" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-5" aria-label="Explicación de La interfaz y voz">Explicación</a><a href="#practica-5" aria-label="Práctica de La interfaz y voz">Práctica</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">04</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-6" data-map-destination><span>Proyecto 1 · Tu primera landing</span><span class="module-marks"><span class="done" data-done="6" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="6" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-6" aria-label="Explicación de Proyecto 1 · Tu primera landing">Explicación</a><a href="#practica-6" aria-label="Práctica de Proyecto 1 · Tu primera landing">Práctica</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">05</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-7" data-map-destination><span>Tokens, modelos y contexto</span><span class="module-marks"><span class="done" data-done="7" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="7" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-7" aria-label="Explicación de Tokens, modelos y contexto">Explicación</a><a href="#practica-7" aria-label="Práctica de Tokens, modelos y contexto">Práctica</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">06</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-8" data-map-destination><span>Control</span><span class="module-marks"><span class="done" data-done="8" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="8" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-8" aria-label="Explicación de Control">Explicación</a><a href="#practica-8" aria-label="Práctica de Control">Práctica</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">07</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-9" data-map-destination><span>Estructura de los proyectos</span><span class="module-marks"><span class="done" data-done="9" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="9" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-9" aria-label="Explicación de Estructura de los proyectos">Explicación</a><a href="#practica-9" aria-label="Práctica de Estructura de los proyectos">Práctica</a></div></div></li>
+</ol>
+<h4>Proyectos</h4>
+<ol class="map-projects" start="1">
+<li><a class="map-project" href="#proyecto-1" data-map-destination><span class="map-project-no" aria-label="Proyecto 1">P01</span><span>Página de presentación</span><span class="map-project-arrow" aria-hidden="true">↗</span></a></li>
+<li><a class="map-project" href="#proyecto-2" data-map-destination><span class="map-project-no" aria-label="Proyecto 2">P02</span><span>Personalización de Handy</span><span class="map-project-arrow" aria-hidden="true">↗</span></a></li>
+</ol>
+</section>
+<section class="map-phase" style="--phase:#8f2833" aria-labelledby="map-phase-2">
+<div class="map-phase-title"><h3 id="map-phase-2">Herramientas y creación</h3><span>Módulos 08–12</span></div>
+<ol class="map-stops" start="9" aria-label="Módulos de Herramientas y creación">
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">08</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-10" data-map-destination><span>MCP y conectores</span><span class="module-marks"><span class="done" data-done="10" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="10" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-10" aria-label="Explicación de MCP y conectores">Explicación</a><a href="#practica-10" aria-label="Práctica de MCP y conectores">Práctica</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">09</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-11" data-map-destination><span>Proyecto 3 · Un corto de animación 3D</span><span class="module-marks"><span class="done" data-done="11" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="11" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-11" aria-label="Explicación de Proyecto 3 · Un corto de animación 3D">Explicación</a><a href="#practica-11" aria-label="Práctica de Proyecto 3 · Un corto de animación 3D">Práctica</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">10</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-12" data-map-destination><span>Browser, Computer y Phone Use</span><span class="module-marks"><span class="done" data-done="12" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="12" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-12" aria-label="Explicación de Browser, Computer y Phone Use">Explicación</a><a href="#practica-12" aria-label="Práctica de Browser, Computer y Phone Use">Práctica</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">11</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-13" data-map-destination><span>Skills</span><span class="module-marks"><span class="done" data-done="13" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="13" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-13" aria-label="Explicación de Skills">Explicación</a><a href="#practica-13" aria-label="Práctica de Skills">Práctica</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">12</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-14" data-map-destination><span>Computer Use en el mundo real</span><span class="module-marks"><span class="done" data-done="14" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="14" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-14" aria-label="Explicación de Computer Use en el mundo real">Explicación</a><a href="#practica-14" aria-label="Práctica de Computer Use en el mundo real">Práctica</a></div></div></li>
+</ol>
+<h4>Proyectos</h4>
+<ol class="map-projects" start="3">
+<li><a class="map-project" href="#proyecto-3" data-map-destination><span class="map-project-no" aria-label="Proyecto 3">P03</span><span>Corto de animación</span><span class="map-project-arrow" aria-hidden="true">↗</span></a></li>
+<li><a class="map-project" href="#proyecto-4" data-map-destination><span class="map-project-no" aria-label="Proyecto 4">P04</span><span>Investigador de ideas</span><span class="map-project-arrow" aria-hidden="true">↗</span></a></li>
+<li><a class="map-project" href="#proyecto-5" data-map-destination><span class="map-project-no" aria-label="Proyecto 5">P05</span><span>Generador de anuncios con una skill</span><span class="map-project-arrow" aria-hidden="true">↗</span></a></li>
+<li><a class="map-project" href="#proyecto-6" data-map-destination><span class="map-project-no" aria-label="Proyecto 6">P06</span><span>Pieza para impresión 3D</span><span class="map-project-arrow" aria-hidden="true">↗</span></a></li>
+<li><a class="map-project" href="#proyecto-7" data-map-destination><span class="map-project-no" aria-label="Proyecto 7">P07</span><span>Maqueta editable de una oficina</span><span class="map-project-arrow" aria-hidden="true">↗</span></a></li>
+</ol>
+</section>
+<section class="map-phase" style="--phase:#821521" aria-labelledby="map-phase-3">
+<div class="map-phase-title"><h3 id="map-phase-3">Coordinación y automatización</h3><span>Módulos 13–16</span></div>
+<ol class="map-stops" start="14" aria-label="Módulos de Coordinación y automatización">
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">13</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-15" data-map-destination><span>Subagentes y orquestación</span><span class="module-marks"><span class="done" data-done="15" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="15" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-15" aria-label="Explicación de Subagentes y orquestación">Explicación</a><a href="#practica-15" aria-label="Práctica de Subagentes y orquestación">Práctica</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">14</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-16" data-map-destination><span>Automatización 24/7 local y en la nube</span><span class="module-marks"><span class="done" data-done="16" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="16" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-16" aria-label="Explicación de Automatización 24/7 local y en la nube">Explicación</a><a href="#practica-16" aria-label="Práctica de Automatización 24/7 local y en la nube">Práctica</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">15</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-17" data-map-destination><span>Proyecto 10 · Tu segundo cerebro y handoff</span><span class="module-marks"><span class="done" data-done="17" role="img" aria-label="Práctica resuelta" hidden>✓</span><span class="completion-check module-complete" data-subtopics-complete="17" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-17" aria-label="Explicación de Proyecto 10 · Tu segundo cerebro y handoff">Explicación</a><a href="#practica-17" aria-label="Práctica de Proyecto 10 · Tu segundo cerebro y handoff">Práctica</a></div></div></li>
+<li class="map-stop"><span class="map-stop-no" aria-hidden="true">16</span><div class="map-stop-body"><a class="map-stop-main" href="#temas-18" data-map-destination><span>Próximos pasos</span><span class="module-marks"><span class="completion-check module-complete" data-subtopics-complete="18" role="img" aria-label="Subtemas completados" hidden></span></span></a><div class="map-stop-actions"><a href="#capitulo-18" aria-label="Explicación de Próximos pasos">Explicación</a></div></div></li>
+</ol>
+<h4>Proyectos</h4>
+<ol class="map-projects" start="8">
+<li><a class="map-project" href="#proyecto-8" data-map-destination><span class="map-project-no" aria-label="Proyecto 8">P08</span><span>Paquete para publicar un video</span><span class="map-project-arrow" aria-hidden="true">↗</span></a></li>
+<li><a class="map-project" href="#proyecto-9" data-map-destination><span class="map-project-no" aria-label="Proyecto 9">P09</span><span>Boletín y asistente diario</span><span class="map-project-arrow" aria-hidden="true">↗</span></a></li>
+<li><a class="map-project" href="#proyecto-10" data-map-destination><span class="map-project-no" aria-label="Proyecto 10">P10</span><span>Segundo cerebro con Obsidian</span><span class="map-project-arrow" aria-hidden="true">↗</span></a></li>
+</ol>
+</section>
+  </div>
+  <div id="map-search-panel" hidden>
+  <input id="index-search" class="index-search" type="search" aria-label="Buscar módulo, práctica o proyecto" placeholder="Buscar en el mapa">
+  <div class="index-tools" aria-label="Filtrar diapositivas">
+    <button type="button" class="control" data-filter="" aria-pressed="true">General</button>
+    <button type="button" class="control" data-filter="Capítulo" aria-pressed="false">Módulos</button>
+    <button type="button" class="control" data-filter="Práctica" aria-pressed="false">Prácticas</button>
+    <button type="button" class="control" data-filter="Proyecto" aria-pressed="false">Proyectos</button>
+  </div>
+  <div class="index-list" id="index-list"></div>
+  <p id="index-empty" class="index-empty" hidden>Sin coincidencias.</p>
+  </div>
+</dialog>
+
+<section id="whiteboard" aria-labelledby="whiteboard-title" hidden="">
+  <div class="board-heading">
+    <h3 id="whiteboard-title">Pizarra</h3>
+    
+  </div>
+  <div id="board-tools" class="board-tools" role="group" aria-label="Herramientas de la pizarra"><div class="board-toolbar board-compact-toolbar">
+    <div class="board-group board-drawing" role="group" aria-label="Herramientas de dibujo">
+      <button class="control board-icon" type="button" data-board-tool="pen" aria-pressed="true" aria-label="Lápiz" data-board-tooltip="Lápiz"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m13.5 5.5 5 5M4 20l4.7-1 11.6-11.6a1.4 1.4 0 0 0 0-2L18.6 3.7a1.4 1.4 0 0 0-2 0L5 15.3 4 20z"></path></svg></button>
+      
+      
+      <button class="control board-icon" type="button" data-board-tool="eraser" aria-pressed="false" aria-label="Borrador" data-board-tooltip="Borrador"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m9 20-5.3-5.3a1.8 1.8 0 0 1 0-2.5l8.4-8.4a1.8 1.8 0 0 1 2.5 0l5.7 5.7a1.8 1.8 0 0 1 0 2.5L12.3 20H9zM8.3 8.6l7 7M12.3 20H21"></path></svg></button>
+    <div id="board-shape-control" class="board-shape-control"><button type="button" id="board-shape-toggle" class="control board-icon" aria-label="Figuras geométricas" data-board-tooltip="Figuras geométricas" aria-controls="board-shape-menu" aria-expanded="false"><span id="board-shape-symbol"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="9" height="9" rx="1.5"></rect><circle cx="15.5" cy="15.5" r="5.5"></circle></svg></span></button></div></div>
+    <div class="board-group">
+      <label class="board-picker" data-board-tooltip="Color del trazo"><span id="board-color-swatch" aria-hidden="true"></span><select class="control" id="board-color" aria-label="Color del trazo">
+          <option value="#182439">Negro</option>
+          <option value="#125db0">Azul</option>
+          <option value="#b91e22" selected>Rojo</option>
+          <option value="#087650">Verde</option>
+        </select>
+      </label>
+      <label class="board-picker" data-board-tooltip="Grosor del trazo"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16" stroke-width="1.2"></path><path d="M4 12h16" stroke-width="2.2"></path><path d="M4 18h16" stroke-width="3.2"></path></svg><select class="control" id="board-weight" aria-label="Grosor del trazo">
+          <option value="3">Fino</option>
+          <option value="6" selected>Medio</option>
+          <option value="12">Grueso</option>
+        </select>
+      </label>
+    </div>
+    <div class="board-group board-history" role="group" aria-label="Historial de la pizarra">
+      <button class="control board-icon" type="button" id="board-undo" aria-keyshortcuts="Control+Z Meta+Z" disabled aria-label="Deshacer" data-board-tooltip="Deshacer"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 5 4 9.5l4.5 4.5M4 9.5h10.5a5.5 5.5 0 1 1 0 11h-3"></path></svg></button>
+      <button class="control board-icon" type="button" id="board-redo" aria-keyshortcuts="Control+Shift+Z Meta+Shift+Z Control+Y" disabled aria-label="Rehacer" data-board-tooltip="Rehacer"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m15.5 5 4.5 4.5-4.5 4.5m4.5-4.5H9.5a5.5 5.5 0 1 0 0 11h3"></path></svg></button>
+      <button class="control board-icon" type="button" id="board-clear" disabled aria-label="Limpiar pizarra" data-board-tooltip="Limpiar pizarra"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16m-10-3h4l1 3M6 7l1 13h10l1-13M10 10v7m4-7v7"></path></svg></button>
+    </div>
+  <div class="board-group board-images" role="group" aria-label="Insertar y seleccionar imágenes">
+    <button class="control board-icon" type="button" id="board-load-image" aria-label="Cargar imagen" data-board-tooltip="Cargar imagen"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="m4 17 4.7-4.5 3.3 3.2 3.7-4.2 4.3 4.8M15.5 8h4m-2-2v4"></path></svg></button>
+    <input id="board-image-file" type="file" accept="image/*" hidden>
+    <button class="control board-icon" type="button" id="board-paste-image" aria-label="Pegar imagen · Ctrl+V o ⌘+V" data-board-tooltip="Pegar imagen · Ctrl+V o ⌘+V"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5H5v16h14V5h-3M9 3h6v5H9zM12 11v6m-2.5-2.5L12 17l2.5-2.5"></path></svg></button>
+    <button class="control board-icon" type="button" data-board-tool="select" aria-pressed="false" aria-label="Seleccionar y mover imagen" data-board-tooltip="Seleccionar y mover imagen"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m6 3 13 10-6.3 1.2L10 20 6 3z"></path></svg></button>
+  </div>
+  <div class="board-group board-image-edits" role="group" aria-label="Editar imagen seleccionada">
+    <button class="control board-icon" type="button" id="board-rotate-image" disabled aria-label="Girar imagen 90°" data-board-tooltip="Girar imagen 90°"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11a7 7 0 1 1-2.3-5.1L19 8m0-5v5h-5"></path></svg></button>
+    <button class="control board-icon" type="button" id="board-crop-image" disabled aria-label="Recortar imagen" data-board-tooltip="Recortar imagen"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" data-board-variant="default"><path d="M7 3v14h14M3 7h14v14"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" data-board-variant="crop"><path d="m5 12 4.5 4.5L19 7"></path></svg></button>
+    <button class="control board-icon" type="button" id="board-remove-image" disabled aria-label="Quitar imagen" data-board-tooltip="Quitar imagen"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" data-board-variant="default"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="m9 9 6 6m0-6-6 6"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" data-board-variant="crop"><path d="m6 6 12 12M18 6 6 18"></path></svg></button>
+  </div>
+</div>
+    <div id="board-shape-menu" class="board-shape-menu" role="group" aria-label="Figuras geométricas" hidden=""><button type="button" data-board-tool="line" aria-pressed="false" class="control board-icon" aria-label="Línea" data-board-tooltip="Línea"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 19 5"></path></svg></button><button type="button" data-board-tool="arrow" aria-pressed="false" class="control board-icon" aria-label="Flecha" data-board-tooltip="Flecha"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 19 5m-8 0h8v8"></path></svg></button><button type="button" data-board-tool="rectangle" aria-pressed="false" class="control board-icon" aria-label="Rectángulo" data-board-tooltip="Rectángulo"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="1"></rect></svg></button><button type="button" data-board-tool="square" aria-pressed="false" class="control board-icon" aria-label="Cuadrado" data-board-tooltip="Cuadrado"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="1"></rect></svg></button><button type="button" data-board-tool="ellipse" aria-pressed="false" class="control board-icon" aria-label="Elipse" data-board-tooltip="Elipse"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="9" ry="5.8"></ellipse></svg></button><button type="button" data-board-tool="circle" aria-pressed="false" class="control board-icon" aria-label="Círculo" data-board-tooltip="Círculo"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7.5"></circle></svg></button><button type="button" data-board-tool="triangle" aria-pressed="false" class="control board-icon" aria-label="Triángulo" data-board-tooltip="Triángulo"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 21 19H3z"></path></svg></button><button type="button" data-board-tool="diamond" aria-pressed="false" class="control board-icon" aria-label="Rombo" data-board-tooltip="Rombo"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 9-8 9-8-9z"></path></svg></button><button type="button" data-board-tool="pentagon" aria-pressed="false" class="control board-icon" aria-label="Pentágono" data-board-tooltip="Pentágono"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8.5 6.2-3.2 10H6.7l-3.2-10z"></path></svg></button><button type="button" data-board-tool="hexagon" aria-pressed="false" class="control board-icon" aria-label="Hexágono" data-board-tooltip="Hexágono"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10l4.5 8-4.5 8H7l-4.5-8z"></path></svg></button></div>
+    <span id="board-tooltip" class="board-tooltip" aria-hidden="true" hidden=""></span>
+  </div>
+  <p id="board-image-status" class="board-image-status" role="status" hidden></p><div class="board-surface">
+    <canvas id="whiteboard-canvas" width="1600" height="900" tabindex="0" aria-label="Pizarra para dibujar y editar imágenes. Pega una imagen con Ctrl+V o ⌘+V.">
+      Este navegador requiere compatibilidad con Canvas para dibujar.
+    </canvas>
+  </div>
+</section>
+<script type="application/octet-stream" id="deck-pdf">{{PDF}}</script>
+<script id="qr-generator">{{QR_LIB}}</script>
+<script id="pdf-library">{{PDF_LIB}}</script><script id="deck-pdf-layout" type="application/json">{{PDF_MAPA}}</script><script>{{MOTOR}}</script>
+</body>
+</html>

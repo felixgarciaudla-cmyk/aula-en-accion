@@ -1,0 +1,422 @@
+[
+  {
+    "id": "4",
+    "module": "Módulo 02",
+    "title": "Instalación y primer encargo",
+    "prompt": "¿Qué resultado confirma que el inventario de la carpeta es fiable?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "0",
+        "label": "El inventario abre y muestra tres filas con encabezados."
+      },
+      {
+        "letter": "B",
+        "value": "1",
+        "label": "El explorador muestra los tres archivos de la carpeta."
+      },
+      {
+        "letter": "C",
+        "value": "2",
+        "label": "Los nombres y las funciones coinciden con los archivos revisados."
+      },
+      {
+        "letter": "D",
+        "value": "3",
+        "label": "Las funciones se deducen a partir de las extensiones."
+      }
+    ],
+    "correct": "2",
+    "feedback": "El inventario se verifica al cotejar los nombres y las funciones con los archivos revisados en la carpeta."
+  },
+  {
+    "id": "5",
+    "module": "Módulo 03",
+    "title": "Interfaz, dictado y voz",
+    "prompt": "¿Qué revisión confirma que el dictado conserva el encargo original?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "1",
+        "label": "Revisar la ortografía y la puntuación del texto."
+      },
+      {
+        "letter": "B",
+        "value": "2",
+        "label": "Confirmar los nombres de archivos y el orden de los párrafos."
+      },
+      {
+        "letter": "C",
+        "value": "3",
+        "label": "Verificar el tono de la redacción y el formato del documento."
+      },
+      {
+        "letter": "D",
+        "value": "4",
+        "label": "Cotejar la entrada, el entregable y las condiciones con el encargo."
+      }
+    ],
+    "correct": "4",
+    "feedback": "Cotejar el dictado con el encargo confirma qué datos usar, qué entregar y qué condiciones cumplir."
+  },
+  {
+    "id": "6",
+    "module": "Módulo 04",
+    "title": "De la idea a una página web",
+    "prompt": "¿Qué evidencia comprueba que los enlaces del menú funcionan en ambos tamaños?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "0",
+        "label": "Capturar el menú abierto en los dos tamaños."
+      },
+      {
+        "letter": "B",
+        "value": "1",
+        "label": "Registrar que cada enlace abre su destino en ambos tamaños."
+      },
+      {
+        "letter": "C",
+        "value": "2",
+        "label": "Probar todos los enlaces en la vista de escritorio."
+      },
+      {
+        "letter": "D",
+        "value": "3",
+        "label": "Revisar en el código que los enlaces tengan una dirección."
+      }
+    ],
+    "correct": "1",
+    "feedback": "Abrir los destinos en ambos tamaños comprueba el funcionamiento del menú en las dos vistas solicitadas."
+  },
+  {
+    "id": "7",
+    "module": "Módulo 05",
+    "title": "Modelos, tokens y contexto",
+    "prompt": "¿Cómo compruebas si el temario mejoró la precisión de la respuesta?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "1",
+        "label": "Cambiar el encargo en la segunda prueba y comparar las salidas."
+      },
+      {
+        "letter": "B",
+        "value": "2",
+        "label": "Valorar las respuestas por extensión y nivel de detalle."
+      },
+      {
+        "letter": "C",
+        "value": "3",
+        "label": "Aplicar el mismo criterio a ambas respuestas usando el temario."
+      },
+      {
+        "letter": "D",
+        "value": "4",
+        "label": "Consultar una fuente distinta para verificar cada respuesta."
+      }
+    ],
+    "correct": "3",
+    "feedback": "Usar la misma fuente y el mismo criterio permite identificar qué afirmaciones se ajustan mejor al temario."
+  },
+  {
+    "id": "8",
+    "module": "Módulo 06",
+    "title": "Permisos y modo Plan",
+    "prompt": "¿Qué plan cumple el encargo y acota el acceso a la carpeta del taller?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "0",
+        "label": "Limita el acceso a la carpeta, enumera dos acciones y define una prueba."
+      },
+      {
+        "letter": "B",
+        "value": "1",
+        "label": "Detalla dos acciones y una prueba con acceso a todo el disco."
+      },
+      {
+        "letter": "C",
+        "value": "2",
+        "label": "Acota la carpeta y las acciones, y deja pendiente definir la prueba."
+      },
+      {
+        "letter": "D",
+        "value": "3",
+        "label": "Identifica la carpeta y la prueba, y delega la elección de las acciones."
+      }
+    ],
+    "correct": "0",
+    "feedback": "El plan debe acotar el acceso, describir las acciones y anticipar cómo se verificará el cambio."
+  },
+  {
+    "id": "9",
+    "module": "Módulo 07",
+    "title": "Estructura y continuidad de un proyecto",
+    "prompt": "¿Qué documentación permite localizar la entrada y repetir la prueba?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "0",
+        "label": "La lista de archivos modificados y la fecha de la última edición."
+      },
+      {
+        "letter": "B",
+        "value": "1",
+        "label": "La ruta inicial, los pasos de la prueba y el resultado esperado."
+      },
+      {
+        "letter": "C",
+        "value": "2",
+        "label": "La captura de la prueba ejecutada en el equipo de quien editó."
+      },
+      {
+        "letter": "D",
+        "value": "4",
+        "label": "El resultado esperado y la versión actual del proyecto."
+      }
+    ],
+    "correct": "1",
+    "feedback": "La ruta identifica el punto de entrada y los pasos con un resultado esperado permiten repetir la prueba."
+  },
+  {
+    "id": "10",
+    "module": "Módulo 08",
+    "title": "MCP y herramientas conectadas",
+    "prompt": "¿Qué prueba verifica que la herramienta conectada devuelve el dato correcto?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "0",
+        "label": "Comprobar que el conector aparece como activo en el panel."
+      },
+      {
+        "letter": "B",
+        "value": "1",
+        "label": "Consultar un registro nuevo y revisar el formato de la salida."
+      },
+      {
+        "letter": "C",
+        "value": "3",
+        "label": "Consultar un registro conocido y cotejar el campo con su fuente."
+      },
+      {
+        "letter": "D",
+        "value": "4",
+        "label": "Repetir una consulta y comprobar que devuelve el mismo valor."
+      }
+    ],
+    "correct": "3",
+    "feedback": "Un registro conocido ofrece un valor de referencia para comprobar el campo devuelto por la integración."
+  },
+  {
+    "id": "11",
+    "module": "Módulo 09",
+    "title": "Producción de un corto 3D",
+    "prompt": "¿Qué observación indica un fallo de continuidad entre dos planos?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "0",
+        "label": "El encuadre pasa de un plano general a un detalle previsto."
+      },
+      {
+        "letter": "B",
+        "value": "2",
+        "label": "El enfoque pasa de la pieza al fondo como indica la viñeta."
+      },
+      {
+        "letter": "C",
+        "value": "3",
+        "label": "La luz cambia al entrar en otra escena prevista en el guion."
+      },
+      {
+        "letter": "D",
+        "value": "4",
+        "label": "La misma pieza cambia de color sin una causa en el guion."
+      }
+    ],
+    "correct": "4",
+    "feedback": "El color debe mantenerse entre planos cuando la referencia visual establece que se trata de la misma pieza."
+  },
+  {
+    "id": "12",
+    "module": "Módulo 10",
+    "title": "Navegador, computador y teléfono",
+    "prompt": "¿Qué registro permite verificar directamente la afirmación en su fuente?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "0",
+        "label": "El enlace y la sección exacta de la fuente que respalda el dato."
+      },
+      {
+        "letter": "B",
+        "value": "1",
+        "label": "La portada del sitio y un resumen del hallazgo."
+      },
+      {
+        "letter": "C",
+        "value": "2",
+        "label": "Una captura recortada del dato y la fecha en que se tomó."
+      },
+      {
+        "letter": "D",
+        "value": "4",
+        "label": "El título de la fuente y una paráfrasis del hallazgo."
+      }
+    ],
+    "correct": "0",
+    "feedback": "La ubicación exacta permite repetir la consulta y comprobar qué parte de la fuente sustenta el dato."
+  },
+  {
+    "id": "13",
+    "module": "Módulo 11",
+    "title": "Skills y creación de anuncios",
+    "prompt": "¿Qué prueba demuestra que la misma skill se adapta a dos servicios?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "0",
+        "label": "Ejecutarla dos veces con el primer servicio y comparar el tono."
+      },
+      {
+        "letter": "B",
+        "value": "1",
+        "label": "Generar el segundo anuncio y revisar su formato visual."
+      },
+      {
+        "letter": "C",
+        "value": "2",
+        "label": "Probarla con ambos servicios y verificar su beneficio y público."
+      },
+      {
+        "letter": "D",
+        "value": "3",
+        "label": "Editar el primer anuncio para sustituir el nombre del servicio."
+      }
+    ],
+    "correct": "2",
+    "feedback": "Probar entradas distintas muestra si la skill ajusta el beneficio y el público a los datos de cada servicio."
+  },
+  {
+    "id": "14",
+    "module": "Módulo 12",
+    "title": "Impresión 3D y maqueta de oficina",
+    "prompt": "¿Cómo verificas que el STL conserva las dimensiones previstas?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "1",
+        "label": "Revisar las medidas del modelo original antes de exportar."
+      },
+      {
+        "letter": "B",
+        "value": "2",
+        "label": "Confirmar que la pieza cabe en la plataforma de impresión."
+      },
+      {
+        "letter": "C",
+        "value": "3",
+        "label": "Comparar la forma de la pieza en dos vistas del laminador."
+      },
+      {
+        "letter": "D",
+        "value": "4",
+        "label": "Medir dos dimensiones en el laminador y cotejarlas con el diseño."
+      }
+    ],
+    "correct": "4",
+    "feedback": "Medir el STL abierto en el laminador permite detectar cambios de escala o unidades después de exportar."
+  },
+  {
+    "id": "15",
+    "module": "Módulo 13",
+    "title": "Subagentes y coordinación",
+    "prompt": "¿Qué referencia común necesitan los tres encargos para producir entregas coherentes?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "0",
+        "label": "Una ficha con título, hechos, público, tono y criterios de revisión."
+      },
+      {
+        "letter": "B",
+        "value": "1",
+        "label": "Una extensión común y un calendario de entrega por agente."
+      },
+      {
+        "letter": "C",
+        "value": "3",
+        "label": "Una carpeta con recursos y libertad para elegir los criterios."
+      },
+      {
+        "letter": "D",
+        "value": "4",
+        "label": "La primera entrega como modelo de estilo para los otros agentes."
+      }
+    ],
+    "correct": "0",
+    "feedback": "Una ficha común permite comprobar la consistencia de los hechos, el título, el público y el tono de las entregas."
+  },
+  {
+    "id": "16",
+    "module": "Módulo 14",
+    "title": "Automatización local y en la nube",
+    "prompt": "¿Qué registro permite auditar las ejecuciones con y sin novedades?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "0",
+        "label": "El horario configurado y una captura de la tarea activa."
+      },
+      {
+        "letter": "B",
+        "value": "1",
+        "label": "El último resumen disponible y su hora de publicación."
+      },
+      {
+        "letter": "C",
+        "value": "3",
+        "label": "La fecha, las fuentes consultadas y el resultado de cada ejecución."
+      },
+      {
+        "letter": "D",
+        "value": "4",
+        "label": "La lista de fuentes habilitadas al configurar la rutina."
+      }
+    ],
+    "correct": "3",
+    "feedback": "El registro por ejecución permite reconstruir qué fuentes se consultaron y si hubo novedades."
+  },
+  {
+    "id": "17",
+    "module": "Módulo 15",
+    "title": "Base de conocimiento personal",
+    "prompt": "¿Qué respuesta es verificable cuando falta evidencia en las notas?",
+    "options": [
+      {
+        "letter": "A",
+        "value": "0",
+        "label": "Tomar la nota más reciente y asumir que el dato sigue vigente."
+      },
+      {
+        "letter": "B",
+        "value": "1",
+        "label": "Indicar que falta evidencia y citar las notas que se revisaron."
+      },
+      {
+        "letter": "C",
+        "value": "2",
+        "label": "Dar una estimación y citar una nota sobre un tema cercano."
+      },
+      {
+        "letter": "D",
+        "value": "3",
+        "label": "Responder con el dato más frecuente y agregar una advertencia."
+      }
+    ],
+    "correct": "1",
+    "feedback": "Declarar la ausencia de evidencia y citar las notas revisadas deja claro qué se pudo verificar."
+  }
+]
